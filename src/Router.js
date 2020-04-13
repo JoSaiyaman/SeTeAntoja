@@ -84,9 +84,7 @@ export default class RouterComponent extends React.Component {
     render() {
         return (
         <Router tintColor='white' navigationBarStyle={[style.navBar, {backgroundColor: COLORS.primary}]} titleStyle={{color: "white"}}>
-            <Stack 
-            // hideNavBar key="root"
-            >
+            <Stack hideNavBar key="root">
                 {/* <Stack
                     key="auth"
                     type="reset"
@@ -149,11 +147,13 @@ export default class RouterComponent extends React.Component {
 
                 <Stack
                     key="buscar"
+                    hideNavBar={true}
                     style={style.titleStyle}
                 >
                     
                     <Scene
-                        title="Filtros de búsqueda"
+                        hideNavBar
+                        title=""
                         key="filtro"
                         component={Filtro}
                         initial                        

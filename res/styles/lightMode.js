@@ -137,8 +137,12 @@ export default StyleSheet.create({
     height: 80,
     justifyContent: 'center',
     // alignItems: 'center',
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  opcionSlider:{
+    width: 300, 
+    height: 40
   },
   botonMenu:{
     padding: 10,
@@ -171,6 +175,12 @@ export default StyleSheet.create({
     color:'#fff',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  Subtítulo:{
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    margin:5,
+    fontSize: 18
   }
       
 });
