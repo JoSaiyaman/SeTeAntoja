@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Menu from './views/Menu';
 import Filtro from './views/Buscar/Filtro';
+import { MealExploration } from './views/MealExploration/MealExploration';
 
 // import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
 // import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';
@@ -140,6 +141,13 @@ export default class RouterComponent extends React.Component {
                         key="home_screen"
                         component={Menu}
                         initial                        
+                    />
+
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_exploration"
+                        component={MealExploration}              
                     />
 
                 </Stack>

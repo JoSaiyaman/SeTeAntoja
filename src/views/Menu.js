@@ -71,12 +71,12 @@ export default class Menu extends React.Component{
     let c_style = commonStyles(this);
 
     var navigationView = (
-        <View style={estilos.container}>
+        <View style={estilos.main_container}>
           <ScrollView style={estilos.ScrollContainer} contentContainerStyle={estilos.contentContainer}>
             <View>
               <View style ={estilos.header}>
                   <View >
-                      <Image style={estilos.profilepicWrap}/>
+                      {/* <Image style={estilos.profilepicWrap}/> */}
                   </View> 
               </View>
               
@@ -109,7 +109,7 @@ export default class Menu extends React.Component{
       ); 
       
       return ( 
-        <DrawerLayoutAndroid style={estilos.container}
+        <DrawerLayoutAndroid style={estilos.main_container}
         ref = "mainDrawer"
         drawerWidth={300}
         renderNavigationView={() => navigationView}>
@@ -129,12 +129,12 @@ export default class Menu extends React.Component{
               <View style={estilos.opcion}>
               </View>
               <View style={estilos.opcion}>
-                <TouchableOpacity style={[estilos.botonMenu,{backgroundColor: 'rgb(112,151,245)'}]}>
+                <TouchableOpacity onPress={()=>Actions.meal_exploration()} style={[estilos.botonMenu,{backgroundColor: 'rgb(112,151,245)'}]}>
                   <Text  style={estilos.botonMenuText}> Botón </Text>
                 </TouchableOpacity>
               </View>
               <View style={estilos.opcion}>
-                <TouchableOpacity style={[estilos.botonMenu,{backgroundColor: 'rgb(68,114,196)'}]}>
+                <TouchableOpacity onPress={()=>console.log('Test log')} style={[estilos.botonMenu,{backgroundColor: 'rgb(68,114,196)'}]}>
                   <Text  style={estilos.botonMenuText}> Botón </Text>
                 </TouchableOpacity>
               </View>
