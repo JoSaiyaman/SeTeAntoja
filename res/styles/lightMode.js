@@ -6,7 +6,7 @@ export default StyleSheet.create({
   main_container:{
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:COLORS.menu,
+    backgroundColor:COLORS.background,
     flex:1
 
   },
@@ -100,8 +100,8 @@ export default StyleSheet.create({
 
   // Router Navbar
   navBar: {
-    backgroundColor: COLORS.primary,
-    color: COLORS.secondary,
+    backgroundColor: COLORS.navBar,
+    color: COLORS.fontColorWhite,
     fontWeight: "normal"
   },
 
