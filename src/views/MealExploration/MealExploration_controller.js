@@ -11,37 +11,53 @@
 
 // }
 
-// export  function requestOtpCodeAction(context, phoneNumber){
+export  function getMealProfileList(context){
 
-//     context.setState({
+    return [
+        {
+            name: "Hamburguesa NYC",
+            description: "Deliciosa hamburguesa llena de quesos finos importados. Inlcuye tocino y la mas fina carne.",
+            images: [
+                require('../../../res/images/food_burger_1.jpg'),
 
-//         loading:true
+            ]
+        },
+        {
+            name: "Sopes de chorizo vegano",
+            description: "Chorizo VEGANO perfectamente sabroso ¡súper saludable!",
+            images: [
+                require('../../../res/images/food_sopes_1.jpg'),
 
-//     })
-//     api.requestOtpCode(phoneNumber).then((response)=>{
-//         console.log(response)
-//         if(response["status"] == OK ){
+            ]
+        }, 
+        {
+            name: "Tacos de trompesito",
+            description: "Sabrosisimos tacos de trompo especiales.",
+            images: [
+                require('../../../res/images/food_tacos_1.jpg'),
 
-//             console.log(response['message'])
-//             context.setState({
-//                 smsHasBeenSent: true
-//             })
+            ]
+        }, 
+        {
+            name: "Sopes de chicharron rojo",
+            description: "Sopes calientitos de chicharron rojo, acompañados de chiles toreados.",
+            images: [
+                require('../../../res/images/food_sopes_2.jpg'),
 
-//         }else{
+            ]
+        }, 
+        {
+            name: "Sopes de trompo",
+            description: "Sopes preparados con carne de trompo de taqueria. Los mejores en todo Nuevo León.",
+            images: [
+                require('../../../res/images/food_sopes_3.jpg'),
 
-//             Alert.alert("Ha habido un error");            
+            ]
+        },
+        
+    ]
 
-//         }
-
-//         context.setState({
-
-//             loading:false
-
-//         })
-
-//     });
-
-// }
+}
 
 // export function verifyOtpCodeAction(context, phoneNumber, otpCode) {
 

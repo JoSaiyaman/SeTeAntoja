@@ -4,7 +4,9 @@ import axios from 'axios'
 import { Scene, Stack } from 'react-native-router-flux';
 // import SplashScreen from 'react-native-splash-screen';
 
+
 export default class App extends Component {
+  
   render() {
     return (
       <Router />
@@ -16,6 +18,9 @@ export default class App extends Component {
   // }
   
   componentWillMount() {
+    console.disableYellowBox = true;
+    console.ignoredYellowBox = ['Warning'];
+
     axios.defaults.baseURL = "";
     axios.defaults.timeout = 40000;
   }
