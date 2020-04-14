@@ -144,7 +144,7 @@ export default class Menu extends React.Component{
                 </TouchableOpacity>
               </View>
               <View style={estilos.opcion}>
-                <TouchableOpacity style={[estilos.botonMenu,{backgroundColor: 'rgb(0,37,203)'}]}>
+                <TouchableOpacity onPress={()=>Actions.meal_selection()} style={[estilos.botonMenu,{backgroundColor: 'rgb(0,37,203)'}]}>
                   <Text  style={estilos.botonMenuText}> Botón </Text>
                 </TouchableOpacity>
               </View>
