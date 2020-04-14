@@ -43,7 +43,11 @@ export class MealExploration extends Component{
 
     onSwipedAborted = () => {
     }
-    
+
+    onSwiped = () => {
+
+    }
+
     onSwipedAllCards = () => {
       this.setState({
         swipedAllCards: true
@@ -113,7 +117,6 @@ export class MealExploration extends Component{
                 onSwipedRight={() => this.onSwiped('right')}
                 onSwipedTop={() => this.onSwiped('top')}
                 onSwipedBottom={() => this.onSwiped('bottom')}
-                onSwiping={this.onSwiping}
                 onTapCard={this.swipeLeft}
                 onSwipedAborted={this.onSwipedAborted}
                 disableBottomSwipe={true}
@@ -124,6 +127,7 @@ export class MealExploration extends Component{
                 onSwipedAll={this.onSwipedAllCards}
                 stackSize={2}
                 stackSeparation={0}
+                infinite={true}
                 backgroundColor={COLORS.background}
                 // animateCardOpacity
                 swipeAnimationDuration={350}
