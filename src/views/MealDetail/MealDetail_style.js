@@ -97,11 +97,11 @@ export const style = (context)=>{
             paddingHorizontal: 20,
             paddingVertical: 10,
             borderTopWidth: 1,
-            borderTopColor: '#333'
+            borderTopColor: COLORS.divider
         },
         meal_detail_title: {
             fontFamily: commonStyles(context).secondaryFontBold,
-            color: COLORS.fontColorWhite,
+            color: COLORS.fontColorBrand,
             fontSize: 24
         },
         meal_detail_subtitle: {
@@ -123,7 +123,7 @@ export const style = (context)=>{
             paddingHorizontal: 8,
             alignSelf: "flex-start",
             borderRadius: 8,
-            backgroundColor: COLORS.navBar,
+            backgroundColor: COLORS.container,
         },
         container_judge: {
             // flex: 1,

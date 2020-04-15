@@ -11,7 +11,7 @@ export default function commonStyles(context){
 
   return {
     //********************* Fonts *******************
-    specialFont: 'Caveat-Bold',                     // Special titles
+    specialFont: 'Nunito-Regular', // Special titles
     primaryFont: 'NanumGothic-Regular',             // Paragraphs
     primaryFontBold: 'NanumGothic-Bold',            // 
     primaryFontExtraBold: 'NanumGothic-ExtraBold',  // 

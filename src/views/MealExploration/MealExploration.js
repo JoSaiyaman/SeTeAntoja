@@ -210,10 +210,16 @@ export class MealExploration extends Component{
                       <TouchableOpacity
                         onPress={()=>Actions.buscar()}
                         style={view_style.appbar_center_button}>
+                        
+                        <Icon name="taco" size={22} color={COLORS.fontColorAccent} />
+                        
+                        <View style={{width: 5}}></View>    
+                        
                         <Text style={view_style.appbar_center_button_text}>Buscar algo para cenar </Text>
+                      
                       </TouchableOpacity> 
                       
-                      <View style={{width: 30}}></View>    
+                      <View style={{width: 40}}></View>    
 
                     </View>
 

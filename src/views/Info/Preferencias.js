@@ -101,7 +101,7 @@ export default class Preferencias extends React.Component{
         />
           <View >
             <ScrollView>
-              
+
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
                 <Text style={[estilos.Título, {fontFamily: c_style.secondaryFont}]}>Preferencias Alimenticias</Text>
               </View>
@@ -114,7 +114,7 @@ export default class Preferencias extends React.Component{
                 <SegmentedControls
                     direction={'column'}
                     tint={COLORS.accent}
-                    selectedTint= {COLORS.fontColorWhite}
+                    selectedTint= {COLORS.fontColorAccentContrast}
                     backTint= {COLORS.background}
                     options={ dietas }
                     // allowFontScaling={ false } // default: true

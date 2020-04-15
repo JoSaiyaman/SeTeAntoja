@@ -24,8 +24,8 @@ export const style = (context)=>{
         },
         brand_label: {
             fontFamily: commonStyles(context).specialFont,
-            fontSize: 50,
-            color: 'white'
+            fontSize: 40,//50,
+            color: COLORS.fontColorBrand
         },
         custom_appbar: {
             width: '100%',
@@ -42,17 +42,19 @@ export const style = (context)=>{
         appbar_center_button: {
             marginTop: 12,
             height: 38,
-            backgroundColor: COLORS.accent,
-            padding: 2,
+            //backgroundColor: COLORS.accent,
+            backgroundColor: COLORS.buttonBackground,
+            // padding: 3,
             paddingHorizontal: 12,
             borderRadius: 8,
             elevation: 4,
-            flexDirection: "row"
+            flexDirection: "row",
+            alignItems: "center"
         },
         appbar_center_button_text: {
-            color: COLORS.primaryFontColor,
-            fontSize: 24,
-            fontFamily: commonStyles(context).specialFont,
+            color: COLORS.fontColorAccent,
+            fontSize: 20, //24,
+            fontFamily: commonStyles(context).secondaryFont,
         },
         main_banner: {
             height: 70,
@@ -106,15 +108,16 @@ export const style = (context)=>{
             justifyContent: 'space-around',
         },
         btn_judge: {
-            borderWidth: 3,
-            backgroundColor: 'transparent',
-            paddingVertical: 12,
-            paddingHorizontal: 16,
-            borderRadius: 10,
+            elevation: 4,
+            // borderWidth: 5,
+            backgroundColor: COLORS.buttonBackground,
+            paddingVertical: 16,
+            paddingHorizontal: 18,
+            borderRadius: 50,
         },
         btn_judge_text: {
             fontFamily: commonStyles(context).specialFont,
-            fontSize: 35,
+            fontSize: 30//38,
         }
     });
 
