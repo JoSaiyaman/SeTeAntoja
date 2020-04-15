@@ -159,19 +159,11 @@ export class MealDetail extends Component{
                         <Text style={{color:COLORS.fontColorAccent,
                             fontSize: 26,
                             fontWeight: "bold",}}>
-                            ¿Cuál se te antoja más?
-                        </Text>
-                    </View>
-                    <View style={{height: this.height*0.1,
-                    justifyContent:"flex-start"}}>
-                        <Text style={{color:COLORS.fontColorAccentContrast,
-                            fontSize: 18,
-                            fontWeight: "bold",}}>
-                            Tu selección
+                            No sé si esto lleva nombre
                         </Text>
                     </View>
                     <View style={{width: this.width,
-                        height: this.width,
+                        height: this.width*1.05,
                         flexDirection:"column-reverse",
                         justifyContent:"flex-start",
                         backgroundColor: COLORS.accent}}>
@@ -184,28 +176,156 @@ export class MealDetail extends Component{
                             <Text style={{color:COLORS.fontColorAccent,
                             fontSize: 28,
                             fontWeight: "bold"}}>
-                                La matona especial de tres vacas de leche espumosa
+                                La matonas especial de tres vacas de leche espumosa
                             </Text>
                     </View>
                     <View style={{height: 10}}></View>
                     <View style={{width: this.width*0.85,
-                        height: this.height*0.2,
+                        height: this.height*0.05,
+                        flexDirection:"row",
                         backgroundColor: COLORS.background}}>
                             <Text style={{color:COLORS.fontColorWhite,
+                            flex: 1,
                             fontSize: 16,
                             fontWeight: "bold"}}>
                                 25 minutos
                             </Text>
+                            <Text style={{color: "yellow",
+                            flex: 1,
+                            fontSize: 16,
+                            fontWeight: "bold"}}>
+                                Estrellitas
+                            </Text>
+                            <Text style={{color:COLORS.green,
+                            flex: 1,
+                            fontSize: 16,
+                            fontWeight: "bold"}}>
+                                79.00 MXN
+                            </Text>
                     </View>
                     <View style={{width: this.width*0.85,
-                        height: this.height*0.4,
                         justifyContent:"flex-start",
                         backgroundColor: COLORS.background}}>
-                            <Text style={{color:COLORS.fontColorAccent,
-                            fontSize: 28,
-                            fontWeight: "bold"}}>
-                                La matona especial de tres vacas de leche espumosa
+                            <Text style={{color:COLORS.fontColorGreyContainer,
+                            fontSize: 20,
+                            textAlign: "justify"}}>
+                                Una descripción bien cheesy que te haga olvidar que traes lonche de godín pa 
+                                gastarte hora y media de tu salario en una anvorguesa sobrevalorada
                             </Text>
+                    </View>
+                    <View style={{height: 20}}></View>
+                    <View style={{width: this.width*0.85,
+                        flexDirection:"row",
+                        justifyContent:"flex-start",
+                        backgroundColor: COLORS.background}}>
+                        <View
+                            //onPress={()=>this.verifyNumberAndRequestSMS()}
+                            style={{width: this.width*0.65,
+                                height: this.height*0.06,
+                            backgroundColor: COLORS.accent,
+                            justifyContent: "center",
+                            alignContent:"center",
+                            alignSelf:"center",
+                            borderWidth: 0,
+                            borderColor: COLORS.accent}}
+                            
+                            //onPress={()=>Actions.meal_detail()}
+                            >
+
+                            <Text style={{textAlign:"center",
+                            color:COLORS.fontColorWhite,
+                            fontSize: 20,
+                            fontWeight: "bold"
+                                }}>Disponible a domicilio
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={{height: 20}}></View>
+                    <View style={{width: this.width*0.85,
+                        justifyContent:"flex-start",
+                        backgroundColor: COLORS.background}}>
+                            <Text style={{color:COLORS.fontColorGreyContainer,
+                            fontSize: 20,
+                            textAlign: "justify",
+                            fontWeight:"bold"}}>
+                                Números
+                            </Text>
+                            <Text style={{color:COLORS.fontColorGreyContainer,
+                            fontSize: 20,
+                            textAlign: "justify"}}>
+                                123456789
+                            </Text>
+                            <Text style={{color:COLORS.fontColorGreyContainer,
+                            fontSize: 20,
+                            textAlign: "justify"}}>
+                                123456789
+                            </Text>
+                    </View>
+                    <View style={{height: 20}}></View>
+                    <View style={{width: this.width*0.85,
+                        justifyContent:"flex-start",
+                        backgroundColor: COLORS.background}}>
+                            <Text style={{color:COLORS.fontColorGreyContainer,
+                            fontSize: 20,
+                            textAlign: "justify"}}>
+                                Dirección
+                            </Text>
+                    </View>
+                    <View style={{width: this.width*0.85,
+                        height: this.width* 0.5,
+                        flexDirection:"column-reverse",
+                        justifyContent:"flex-start",
+                        backgroundColor: COLORS.accent}}>
+                    </View>
+                    <View style={{height: 30}}></View>
+                    <View style={{width: this.width*0.85,
+                        flexDirection:"row",
+                        justifyContent:"center",
+                        backgroundColor: COLORS.background}}>
+                        <TouchableOpacity
+                            //onPress={()=>this.verifyNumberAndRequestSMS()}
+                            style={{width: this.width*0.54,
+                                height: this.height*0.06,
+                            backgroundColor: COLORS.green,
+                            borderRadius:30,
+                            justifyContent: "center",
+                            alignContent:"center",
+                            alignSelf:"center",
+                            borderWidth: 0,
+                            borderColor: COLORS.green}}>
+
+                            <Text style={{textAlign:"center",
+                            color:COLORS.fontColorWhite,
+                            fontSize: 20,
+                            fontWeight: "bold"
+                                }}>Seguir buscando
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{height: 30}}></View>
+                    <View style={{width: this.width*0.85,
+                        flexDirection:"row",
+                        justifyContent:"center",
+                        backgroundColor: COLORS.background}}>
+                        <TouchableOpacity
+                            //onPress={()=>this.verifyNumberAndRequestSMS()}
+                            style={{width: this.width*0.40,
+                                height: this.height*0.06,
+                            backgroundColor: COLORS.red,
+                            borderRadius:30,
+                            justifyContent: "center",
+                            alignContent:"center",
+                            alignSelf:"center",
+                            borderWidth: 0,
+                            borderColor: COLORS.green}}>
+
+                            <Text style={{textAlign:"center",
+                            color:COLORS.fontColorWhite,
+                            fontSize: 20,
+                            fontWeight: "bold"
+                                }}>Reportar
+                            </Text>
+                        </TouchableOpacity>
                     </View>
                     
                 </View>
