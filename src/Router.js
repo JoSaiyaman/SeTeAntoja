@@ -18,6 +18,8 @@ import Filtro from './views/Buscar/Filtro';
 import Preferencias from './views/Info/Preferencias';
 import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
+import {MealSelection} from './views/MealExploration/MealSelection';
+import {MealDetail} from './views/MealExploration/MealDetail';
 
 // import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
 // import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';
@@ -147,6 +149,7 @@ export default class RouterComponent extends React.Component {
                         key="ubicación"
                         component={Ubicación}                  
                     />
+
                 </Stack>
 
 
@@ -187,6 +190,20 @@ export default class RouterComponent extends React.Component {
                         key="meal_exploration"
                         component={MealExploration}
                         initial              
+                    />
+                    
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_selection"
+                        component={MealSelection}              
+                    />
+
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_detail"
+                        component={MealDetail}              
                     />
 
                 </Stack>
