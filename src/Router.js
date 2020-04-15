@@ -19,7 +19,7 @@ import Preferencias from './views/Info/Preferencias';
 import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
 import {MealSelection} from './views/MealExploration/MealSelection';
-import {MealDetail} from './views/MealExploration/MealDetail';
+import { MealDetail } from './views/MealDetail/MealDetail';
 
 // import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
 // import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';

@@ -5,17 +5,17 @@ import {
   Dimensions,
   ActivityIndicator,
   TouchableOpacity,
-  Button,
   ImageBackground,
-  Image
 } from 'react-native';
-import {style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealExploration_style';
-import {commonStyles} from '../../../res/styles/commonStyles';
-import { Input, Overlay } from 'react-native-elements';
+import { style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealExploration_style';
+import { commonStyles} from '../../../res/styles/commonStyles';
+import { Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../../res/colors';
+import { Actions } from 'react-native-router-flux';
 import Swiper from 'react-native-deck-swiper'
 import LinearGradient from 'react-native-linear-gradient';
+
 
 import {
     getMealProfileList
@@ -117,14 +117,16 @@ export class MealExploration extends Component{
                 onSwipedRight={() => this.onSwiped('right')}
                 onSwipedTop={() => this.onSwiped('top')}
                 onSwipedBottom={() => this.onSwiped('bottom')}
-                onTapCard={this.swipeLeft}
+                onTapCard={(index)=>Actions.meal_detail({
+                  mealProfile: this.state.cards[index]
+                })}
                 onSwipedAborted={this.onSwipedAborted}
+                onSwipedAll={this.onSwipedAllCards}
                 disableBottomSwipe={true}
                 cards={this.state.cards}
                 cardIndex={this.state.cardIndex}
                 cardVerticalMargin={140}
                 renderCard={this.renderCard}
-                onSwipedAll={this.onSwipedAllCards}
                 stackSize={2}
                 stackSeparation={0}
                 infinite={true}

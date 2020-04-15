@@ -24,8 +24,8 @@ const COLORS = {
     white:      "white",
 
     fontColorWhite:           "white",
-    fontColorBackground:      "a6a6a6",
-    fontColorNavBar:          "#a6a6a6",
+    fontColorBackground:      "#E6E6E6",
+    fontColorNavBar:          "#c6c6c6",
     fontColorGreyContainer:   "#bfbfbf",
     fontColorAccent:          "#ed7d31",
     fontColorAccentContrast:  "white"
