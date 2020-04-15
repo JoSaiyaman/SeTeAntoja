@@ -23,7 +23,7 @@ import { SegmentedControls } from 'react-native-radio-buttons'
 
 import COLORS from "../../../res/colors";
 import light from "../../../res/styles/lightMode";
-import {commonStyles} from '../../../res/styles/commonStyles';
+import commonStyles from '../../../res/commonStyles';
 
 export default class Ubicación extends React.Component{
 
@@ -134,11 +134,13 @@ export default class Ubicación extends React.Component{
         />
           <View >
             <ScrollView>
+
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
-                <Text style={estilos.Título}>Permiso de Ubicación</Text>
+                <Text style={[estilos.Título, {fontFamily: c_style.secondaryFont}]}>Permiso de Ubicación</Text>
               </View>
+
               <View style={estilos.opcion}>
-                <Text style={estilos.CuadroDescripción}>Por favor comparte tu ubicación para poder optimizar tu experiencia</Text>
+                <Text style={[estilos.CuadroDescripción, , {fontFamily: c_style.secondaryFont}]}>Por favor comparte tu ubicación para poder optimizar tu experiencia</Text>
               </View>
               <View style={{ paddingTop:30, paddingBottom: 30 }}>
                 <Icon 
@@ -152,7 +154,7 @@ export default class Ubicación extends React.Component{
                     Actions.main()
                 }} 
                 style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
-                  <Text  style={estilos.botonMenuText}> Compartir ubicación </Text>
+                  <Text  style={{fontSize: 20, fontFamily: c_style.secondaryFontBold, color: COLORS.fontColorAccentContrast}}> Compartir ubicación </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>

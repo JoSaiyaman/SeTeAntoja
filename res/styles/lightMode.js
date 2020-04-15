@@ -204,7 +204,7 @@ export default StyleSheet.create({
     margin:5,
     fontSize: 24,
     color: COLORS.accent,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     paddingBottom: 15
     // backgroundColor: 'blue'
   },

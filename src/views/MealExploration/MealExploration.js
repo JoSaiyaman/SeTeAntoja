@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   ImageBackground,
+  DrawerLayoutAndroid
 } from 'react-native';
 import { style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealExploration_style';
 import { commonStyles} from '../../../res/styles/commonStyles';
@@ -102,12 +103,19 @@ export class MealExploration extends Component{
         }
 
         let c_style = commonStyles(c_style_context)
-
-        let swipingDirection = this.state.swipingDirection
-
-        console.log(swipingDirection)
  
+        let navigationView = (
+          <View style={view_style.main}>
+          </View>    
+        ); 
+
         return (
+          <DrawerLayoutAndroid style={view_style.main}
+            ref={drawer => {
+                  this.drawer = drawer
+                }}
+            drawerWidth={300}
+            renderNavigationView={() => navigationView}>
             <Swiper
                 ref={swiper => {
                   this.swiper = swiper
@@ -131,7 +139,7 @@ export class MealExploration extends Component{
                 stackSeparation={0}
                 infinite={true}
                 backgroundColor={COLORS.background}
-                // animateCardOpacity
+                animateCardOpacity={false}
                 swipeAnimationDuration={350}
                 animateOverlayLabelsOpacity
                 overlayLabels={{
@@ -194,9 +202,9 @@ export class MealExploration extends Component{
                     <View style={view_style.custom_appbar}>
 
                       <TouchableOpacity
-                          onPress={()=>Actions.auth()}
+                          onPress={()=>this.drawer.openDrawer()}
                           style={view_style.custom_appbar_icon}>
-                          <Icon name="menu" size={30} color="white" />
+                          <Icon name="menu" size={30} color={COLORS.fontColorBackground} />
                       </TouchableOpacity>
                       
                       <TouchableOpacity
@@ -239,6 +247,7 @@ export class MealExploration extends Component{
 
                 </View>
             </Swiper>
+            </DrawerLayoutAndroid>
         );
     }
 }

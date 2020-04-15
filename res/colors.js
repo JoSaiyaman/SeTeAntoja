@@ -15,7 +15,7 @@ const COLORS = {
     // Colors for "Se te antoja"
     background: "#262626",
     navBar:     "#3b3838",
-    accent:     "#ed7d31",
+    accent:     "#ff6600",//"#ed7d31",
     container:  "#404040",
     
     red:        "#c00000",
@@ -27,7 +27,7 @@ const COLORS = {
     fontColorBackground:      "#E6E6E6",
     fontColorNavBar:          "#c6c6c6",
     fontColorGreyContainer:   "#bfbfbf",
-    fontColorAccent:          "#ed7d31",
+    fontColorAccent:          "#ff6600",//"#ed7d31",
     fontColorAccentContrast:  "white"
 
   }

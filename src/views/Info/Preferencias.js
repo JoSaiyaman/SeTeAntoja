@@ -23,7 +23,7 @@ import { SegmentedControls } from 'react-native-radio-buttons'
 
 import COLORS from "../../../res/colors";
 import light from "../../../res/styles/lightMode";
-import {commonStyles} from '../../../res/styles/commonStyles';
+import commonStyles from '../../../res/commonStyles';
 
 export default class Preferencias extends React.Component{
 
@@ -101,18 +101,21 @@ export default class Preferencias extends React.Component{
         />
           <View >
             <ScrollView>
+              
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
-                <Text style={estilos.Título}>Preferencias Alimenticias</Text>
+                <Text style={[estilos.Título, {fontFamily: c_style.secondaryFont}]}>Preferencias Alimenticias</Text>
               </View>
+
               <View style={estilos.opcion}>
-                <Text style={estilos.CuadroDescripción}>Selecciona el tipo de comida que prefieres comer</Text>
+                <Text style={[estilos.CuadroDescripción, {fontFamily: c_style.secondaryFont}]}>Selecciona el tipo de comida que prefieres comer</Text>
               </View>
+
               <View style={{ paddingTop:30, paddingBottom: 30 }}>
                 <SegmentedControls
                     direction={'column'}
                     tint={COLORS.accent}
                     selectedTint= {COLORS.fontColorWhite}
-                    backTint= {COLORS.container}
+                    backTint= {COLORS.background}
                     options={ dietas }
                     // allowFontScaling={ false } // default: true
                     onSelection={ dieta => {
@@ -126,7 +129,7 @@ export default class Preferencias extends React.Component{
                         marginRight: 20,
                     }}
                     selectedOption={ this.state.dieta }
-                    optionStyle={{fontSize: 24, fontFamily: 'AvenirNext-Medium'}}
+                    optionStyle={{fontSize: 22, fontFamily: c_style.secondaryFont}}
                     optionContainerStyle={{flex: 1}}
                 />
               </View>
@@ -140,7 +143,7 @@ export default class Preferencias extends React.Component{
                     Actions.ubicación()
                 }} 
                  style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
-                  <Text  style={estilos.botonMenuText}> Continuar </Text>
+                  <Text  style={{fontSize: 20, fontFamily: c_style.secondaryFontBold, color: COLORS.fontColorAccentContrast}}> Continuar </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
