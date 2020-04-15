@@ -25,7 +25,7 @@ import COLORS from "../../../res/colors";
 import light from "../../../res/styles/lightMode";
 import {commonStyles} from '../../../res/styles/commonStyles';
 
-export default class Preferencias extends React.Component{
+export default class Ubicación extends React.Component{
 
   constructor(props){
 
@@ -76,7 +76,39 @@ export default class Preferencias extends React.Component{
 
     var navigationView = (
         <View style={estilos.container}>
-          
+          <ScrollView style={estilos.ScrollContainer} contentContainerStyle={estilos.contentContainer}>
+            <View>
+              <View style ={estilos.header}>
+                  <View >
+                      <Image style={estilos.profilepicWrap}/>
+                  </View> 
+              </View>
+              
+              <View style={estilos.texto}>
+                  {/* <Text style={estilos.name}>Otras opciones</Text> */}
+              </View >   
+              
+              <TouchableOpacity onPress={() => {
+                // Actions.settings()
+                Alert.alert('Escena de configuración')
+                }}>
+                <View style={estilos.celdaOption}>
+                  <Text style={estilos.menuOption}>Configuración</Text>
+                </View>
+              </TouchableOpacity>
+  
+            </View>
+            <View style={{paddingBottom: 25}}>
+              <TouchableOpacity onPress={() => {
+                // Actions.()
+                Alert.alert('Cerrar sesión')
+                }}>
+                <View style={estilos.celdaOption}>
+                  <Text style={estilos.menuOptionFinal}>Cerrar sesión</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
         </View>    
       ); 
 
@@ -93,7 +125,8 @@ export default class Preferencias extends React.Component{
         renderNavigationView={() => navigationView}>
         <Header
           backgroundColor= {estilos.navBar.backgroundColor}
-          leftComponent={{ text: "Salir", style: estilos.textNavBar, onPress:() => Actions.pop() }}
+          leftComponent={{ text: "Atrás", style: estilos.textNavBar, onPress:() => Actions.pop() }}
+          rightComponent={{ text: "Saltar", style: estilos.textNavBar, onPress:() => Actions.main() }}
           containerStyle={{
             marginTop: Platform.OS === 'ios' ? 0 : - 24,
             borderBottomWidth: 0
@@ -102,45 +135,24 @@ export default class Preferencias extends React.Component{
           <View >
             <ScrollView>
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
-                <Text style={estilos.Título}>Preferencias Alimenticias</Text>
+                <Text style={estilos.Título}>Permiso de Ubicación</Text>
               </View>
               <View style={estilos.opcion}>
-                <Text style={estilos.CuadroDescripción}>Selecciona el tipo de comida que prefieres comer</Text>
+                <Text style={estilos.CuadroDescripción}>Por favor comparte tu ubicación para poder optimizar tu experiencia</Text>
               </View>
               <View style={{ paddingTop:30, paddingBottom: 30 }}>
-                <SegmentedControls
-                    direction={'column'}
-                    tint={COLORS.accent}
-                    selectedTint= {COLORS.fontColorWhite}
-                    backTint= {COLORS.container}
-                    options={ dietas }
-                    // allowFontScaling={ false } // default: true
-                    onSelection={ dieta => {
-                        this.setState({
-                            dieta
-                        });
-                    }}
-                    
-                    containerStyle= {{
-                        marginLeft: 20,
-                        marginRight: 20,
-                    }}
-                    selectedOption={ this.state.dieta }
-                    optionStyle={{fontSize: 24, fontFamily: 'AvenirNext-Medium'}}
-                    optionContainerStyle={{flex: 1}}
-                />
+                <Icon 
+                    name='place'
+                    color={COLORS.accent}
+                    size = {150}
+                    />
               </View>
-              <Icon 
-                name='restaurant'
-                color={COLORS.accent}
-                size = {43}
-                />
               <View style={estilos.opcion}>
                 <TouchableOpacity onPress={() => {
-                    Actions.ubicación()
+                    Actions.main()
                 }} 
-                 style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
-                  <Text  style={estilos.botonMenuText}> Continuar </Text>
+                style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
+                  <Text  style={estilos.botonMenuText}> Compartir ubicación </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>

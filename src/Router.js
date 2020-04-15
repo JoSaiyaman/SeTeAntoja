@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Menu from './views/Menu';
 import Filtro from './views/Buscar/Filtro';
 import Preferencias from './views/Info/Preferencias';
+import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
 
 // import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
@@ -126,10 +127,46 @@ export default class RouterComponent extends React.Component {
                         />
                 </Stack> */}
 
-                
+                             
+                <Stack
+                    key="info"
+                    hideNavBar={true}
+                    style={style.titleStyle}
+                >
+                    
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="preferencias"
+                        component={Preferencias}
+                        initial                        
+                    />
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="ubicación"
+                        component={Ubicación}                  
+                    />
+                </Stack>
 
 
-                {/* <Stack
+                <Stack
+                    key="buscar"
+                    hideNavBar={true}
+                    style={style.titleStyle}
+                >
+                    
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="filtro"
+                        component={Filtro}
+                        initial                        
+                    />
+
+                </Stack>
+
+                <Stack
                     key="main"
                     type="reset"
                     hideNavBar={true}
@@ -150,39 +187,6 @@ export default class RouterComponent extends React.Component {
                         key="meal_exploration"
                         component={MealExploration}
                         initial              
-                    />
-
-                </Stack> */}
-
-
-                {/* <Stack
-                    key="buscar"
-                    hideNavBar={true}
-                    style={style.titleStyle}
-                >
-                    
-                    <Scene
-                        hideNavBar
-                        title=""
-                        key="filtro"
-                        component={Filtro}
-                        initial                        
-                    />
-
-                </Stack> */}
-
-                <Stack
-                    key="info"
-                    hideNavBar={true}
-                    style={style.titleStyle}
-                >
-                    
-                    <Scene
-                        hideNavBar
-                        title=""
-                        key="preferencias"
-                        component={Preferencias}
-                        initial                        
                     />
 
                 </Stack>

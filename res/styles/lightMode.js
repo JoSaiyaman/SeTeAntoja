@@ -193,6 +193,7 @@ export default StyleSheet.create({
   Título:{
     alignItems: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
     margin:5,
     fontSize: 24,
     color: COLORS.accent,
