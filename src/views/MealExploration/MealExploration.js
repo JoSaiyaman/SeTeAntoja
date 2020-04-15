@@ -145,7 +145,7 @@ export class MealExploration extends Component{
                 overlayLabels={{
                   left: {
                     element: <View
-                            style={[view_style.btn_judge, {borderColor: COLORS.red, backgroundColor: 'rgba(50,0,0,0.3)'}]}>
+                            style={[view_style.btn_judge, {borderColor: COLORS.red, backgroundColor: COLORS.white}]}>
                             <Text style={[view_style.btn_judge_text, {color: COLORS.red}]}>No</Text>
                           </View>,
                     style: {
@@ -161,7 +161,7 @@ export class MealExploration extends Component{
                   },
                   right: {
                     element: <View
-                              style={[view_style.btn_judge, {borderColor: COLORS.green, backgroundColor: 'rgba(0,50,0,0.3)'}]}>
+                              style={[view_style.btn_judge, {borderColor: COLORS.green, backgroundColor: COLORS.white}]}>
                               <Text style={[view_style.btn_judge_text, {color: COLORS.green}]}>Sí </Text>
                             </View>,
                     style: {
@@ -177,7 +177,7 @@ export class MealExploration extends Component{
                   },
                   top: {
                     element: <View
-                            style={[view_style.btn_judge, {borderColor: COLORS.blue, backgroundColor: 'rgba(0,0,50,0.3)'}]}>
+                            style={[view_style.btn_judge, {borderColor: COLORS.blue, backgroundColor: COLORS.white}]}>
                             <Text style={[view_style.btn_judge_text, {color: COLORS.blue}]}>Mucho</Text>
                           </View>,
                     style: {
