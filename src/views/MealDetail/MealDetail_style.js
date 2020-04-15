@@ -70,6 +70,18 @@ export const style = (context)=>{
             backgroundColor: "white",
             aspectRatio: 300 / 300
         },
+        supplier_map_image:{
+            borderRadius: 15,
+            // height: 200
+            // aspectRatio: 300 / 300,
+            // width: '100%'
+        },
+        supplier_map_gradient:{
+            borderRadius: 15,
+            // width: 100,
+            // height: 200,
+            aspectRatio: 300 / 180,
+        },
         meal_detail_card_inner: {
             justifyContent: "flex-end",
             backgroundColor: 'black',
@@ -125,38 +137,6 @@ export const style = (context)=>{
             borderRadius: 8,
             backgroundColor: COLORS.container,
         },
-        container_judge: {
-            // flex: 1,
-            // height: 120,
-            // elevation: 1,
-            width: "100%",
-            borderTopWidth: 1,
-            borderColor: COLORS.navBar,
-            // backgroundColor: COLORS.navBar,
-            justifyContent: 'flex-end',
-            alignContent: 'center',
-            alignItems: 'center',
-            padding: 15,
-            // borderTopRightRadius: 25,
-            // borderTopLeftRadius: 25,
-            // borderRadius: 25,
-        },  
-        row_judge: {
-            aspectRatio: 300 / 70,
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-        },
-        btn_judge: {
-            borderWidth: 3,
-            backgroundColor: 'transparent',
-            paddingVertical: 12,
-            paddingHorizontal: 16,
-            borderRadius: 10,
-        },
-        btn_judge_text: {
-            fontFamily: commonStyles(context).specialFont,
-            fontSize: 35,
-        },
         meal_detail_tile: {
             // backgroundColor: COLORS.accent,
             padding: 5,
@@ -175,7 +155,7 @@ export const style = (context)=>{
             fontFamily: commonStyles(context).secondaryFontBold,
         },
         meal_detail_phone: {
-            padding: 5,
+            padding: 7,
             flexDirection: "row",
             justifyContent: 'space-between',
             alignItems: 'center'
@@ -186,6 +166,20 @@ export const style = (context)=>{
             marginLeft: 6,
             fontFamily: commonStyles(context).secondaryFont,
         },
+        btn_share: {
+            elevation: 4,
+            backgroundColor: COLORS.buttonBackground,
+            paddingVertical: 10,
+            paddingHorizontal: 12,
+            borderRadius: 50,
+            flexDirection: "row",
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
+        btn_share_text: {
+            fontFamily: commonStyles(context).specialFont,
+            fontSize: 24//38,
+        }
     });
 
 }

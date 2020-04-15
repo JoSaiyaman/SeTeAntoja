@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   ImageBackground,
+  Image
 } from 'react-native';
 import { style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealDetail_style';
 import { commonStyles} from '../../../res/styles/commonStyles';
@@ -62,7 +63,6 @@ export class MealDetail extends Component{
           <View style={view_style.main}>
           <ScrollView >
 
-
               <Overlay isVisible={this.state.loading}
                 overlayStyle={{height:this.width*0.1, width:this.width*0.1}}
                 >
@@ -106,7 +106,7 @@ export class MealDetail extends Component{
               </View>
               
               <View style={view_style.meal_detail_container}>
-                <Text style={view_style.meal_detail_subtitle}>Datos de contacto</Text>
+                <Text style={view_style.meal_detail_subtitle}>Servicio a domicilio</Text>
                 {mealProfile.contactNumbers.map(contactNumber => {
                   return (
                     <View style={view_style.meal_detail_phone}>
@@ -117,6 +117,33 @@ export class MealDetail extends Component{
                     </View>
                   );
                 })}                
+              </View>
+              
+              <View style={view_style.meal_detail_container}>
+                <Text style={view_style.meal_detail_subtitle}>Ubicación</Text>
+                <Text style={view_style.meal_detail_description}>{mealProfile.address}</Text>
+                <View style={{height: 10}}></View>
+                <ImageBackground
+                  source={require('../../../res/images/map_tacos_pepe.png')}
+                  style={[{width: '100%' }, view_style.supplier_map_image]}
+                  imageStyle={view_style.supplier_map_image}
+                >
+                  <LinearGradient colors={['rgba(0,0,0,.3)', 'rgba(0,0,0,.3)']} style={view_style.supplier_map_gradient}>
+                  </LinearGradient> 
+                </ImageBackground>
+              </View>
+
+              <View style={view_style.meal_detail_container}>
+                
+                <TouchableOpacity
+                  onPress={this.swipeTop}
+                  style={[view_style.btn_share, {color: COLORS.accent}]}>
+                  <Icon name="share" size={30} color={COLORS.green} />
+                  <View style={{height: 10}}></View>
+
+                  <Text style={[view_style.btn_share_text, {color: COLORS.green}]}>Compartir</Text>
+                </TouchableOpacity>
+                <View style={{height: 10}}></View>
               </View>
 
             </ScrollView>
