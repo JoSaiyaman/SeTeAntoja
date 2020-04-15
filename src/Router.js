@@ -142,14 +142,15 @@ export default class RouterComponent extends React.Component {
                         title=""
                         key="home_screen"
                         component={Menu}
-                        initial                        
+                        // initial                        
                     />
 
                     <Scene
                         hideNavBar
                         title=""
                         key="meal_exploration"
-                        component={MealExploration}              
+                        component={MealExploration}
+                        initial              
                     />
 
                     <Scene

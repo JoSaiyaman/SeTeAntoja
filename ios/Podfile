@@ -81,6 +81,8 @@ target 'SeTeAntoja' do
 
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'SeTeAntojaTests' do
     inherit! :complete
     # Pods for testing

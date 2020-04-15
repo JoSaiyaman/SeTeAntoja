@@ -16,130 +16,106 @@ export const style = (context)=>{
     }
 
     return StyleSheet.create({
-        main_banner: {
-            height: 120,
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: COLORS.primary,
-        },
-        secondary_banner: {
-            height: 90,
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: '#DDD',
-            backgroundColor: '#DED'
-        },
-        secondary_banner_text: {
-            fontFamily: commonStyles(context).primaryFont,
-            fontSize: 20,
-            color: COLORS.primaryFontColorAlt,
-            textAlign: 'center'
-        },
-        primary_bold: {
-            fontFamily: commonStyles(context).primaryFontExtraBold,
-            color: COLORS.primaryFontColorAlt,
-            fontSize: 20,
-            textAlign: 'center'
-        },
         main: {
             flex: 1,
             justifyContent: "flex-start",
             alignItems: "center",
-            backgroundColor: COLORS.blankBackground,
+            backgroundColor: COLORS.background,
         },
         brand_label: {
             fontFamily: commonStyles(context).specialFont,
             fontSize: 50,
             color: 'white'
         },
-        brand_label_inner: {
-            color: COLORS.accent
-        },
-        paragraph: {
-            paddingHorizontal: 30,
-            fontFamily: commonStyles(context).primaryFont,
-            color: COLORS.primaryFontColorAlt,
-            fontSize: 18,
-            textAlign: "left"
-        },
-        centered_paragraph: {
-            width: 200,
-            fontFamily: commonStyles(context).primaryFont,
-            color: COLORS.primaryFontColor,
-            fontSize: 20,
-            textAlign: "center"
-        },
-        large_call_to_action: {
-            width: 250,
-            fontFamily: commonStyles(context).secondaryFont,
-            color: COLORS.primaryFontColorAlt,
-            fontSize: 25,
-            fontWeight: "bold",
-            textAlign: "center",
-        },
-        tile_button: {
-            backgroundColor: COLORS.buttons,
-            padding: 12,
-            borderRadius: 8,
-            elevation: 1,
-            flexDirection: "row"
-        },
-        tile_button_text: {
-            color: COLORS.primaryFontColor,
-            fontSize: 20,
-            fontFamily: commonStyles(context).secondaryFontBold,
-        },
-        input_error: {
-            color: 'red',
-            fontFamily: commonStyles(context).primaryFont,
-            fontSize: 16,
-            marginHorizontal: 25,
-            padding: 8,
-            borderColor: 'red',
-            backgroundColor: '#EDD',
-            borderRadius: 10,
-            borderWidth: 1
-        },
-        phone_input: {
-            paddingVertical: 30,
-            paddingHorizontal: 20,
-            height: 30,
-            borderRadius: 10,
-            marginHorizontal: 25,
-            borderColor: 'grey',
-            borderWidth: 1
-        },
-        phone_input_text: {
-            fontFamily: commonStyles(context).secondaryFont,
-            marginTop: 2,
-            fontSize: 20,
-            height: 20,
-        },
-        otp_code_input: {
-            fontFamily: commonStyles(context).primaryFontBold,
+        custom_appbar: {
+            width: '100%',
             height: 60,
-            borderColor: 'gray',
-            borderWidth: 1,
-            borderRadius: 10,
-            width: 200,
-            fontSize: 26,
-            padding: 2
+            backgroundColor: COLORS.navBar,
+            flexDirection: 'row',
+            justifyContent: "space-between"
         },
-        resend_caption: {
-            fontFamily: commonStyles(context).primaryFont,
-            fontSize: 18,
-            color: COLORS.primaryFontColorAltLight
-        },  
-        row: {
+        custom_appbar_icon: {
+            padding: 10,
+            justifyContent: "center",
+            alignItems: "center",
+        },
+        appbar_center_button: {
+            marginTop: 12,
+            height: 38,
+            backgroundColor: COLORS.accent,
+            padding: 2,
+            paddingHorizontal: 12,
+            borderRadius: 8,
+            elevation: 4,
             flexDirection: "row"
         },
-        column: {
-            flexDirection: "column",
-            alignItems: 'center'
+        appbar_center_button_text: {
+            color: COLORS.primaryFontColor,
+            fontSize: 24,
+            fontFamily: commonStyles(context).specialFont,
+        },
+        main_banner: {
+            height: 70,
+            width: "100%",
+            justifyContent: "center",
+            alignItems: "center",
+        },
+        meal_card: {
+            elevation: 4,
+            borderRadius: 20,
+            justifyContent: "center",
+            backgroundColor: "white",
+            aspectRatio: 300 / 400
+        },
+        meal_card_inner: {
+            justifyContent: "flex-end",
+            backgroundColor: 'black',
+            borderRadius: 20,
+        },
+        meal_card_image: {
+            borderRadius: 21,
+        },
+        meal_card_gradient: {
+            aspectRatio: 400 / 300,
+            paddingLeft: 15,
+            paddingRight: 15,
+            borderRadius: 20,
+            justifyContent: 'flex-end'
+        },
+        meal_card_title: {
+            fontFamily: commonStyles(context).secondaryFontBold,
+            color: COLORS.fontColorWhite,
+            fontSize: 20
+        },
+        meal_card_description: {
+            fontFamily: commonStyles(context).secondaryFont,
+            color: COLORS.fontColorWhite,
+            fontSize: 16
+        },
+        container_judge: {
+            flex: 1,
+            // backgroundColor: 'pink',
+            justifyContent: 'flex-end',
+            alignContent: 'center',
+            alignItems: 'center',
+            padding: 25
+        },  
+        row_judge: {
+            aspectRatio: 300 / 70,
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+        },
+        btn_judge: {
+            borderWidth: 3,
+            backgroundColor: 'transparent',
+            paddingVertical: 12,
+            paddingHorizontal: 16,
+            borderRadius: 10,
+        },
+        btn_judge_text: {
+            fontFamily: commonStyles(context).specialFont,
+            fontSize: 35,
         }
-
     });
 
 }
