@@ -200,7 +200,7 @@ export class MealExploration extends Component{
                       </TouchableOpacity>
                       
                       <TouchableOpacity
-                        onPress={()=>this.verifyFields()}
+                        onPress={()=>Actions.buscar()}
                         style={view_style.appbar_center_button}>
                         <Text style={view_style.appbar_center_button_text}>Buscar algo para cenar </Text>
                       </TouchableOpacity> 

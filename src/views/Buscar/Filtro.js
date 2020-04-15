@@ -19,10 +19,10 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 import Slider from '@react-native-community/slider';
 import ToggleSwitch from 'toggle-switch-react-native'
 import { SegmentedControls } from 'react-native-radio-buttons'
-
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from "../../../res/colors";
 import light from "../../../res/styles/lightMode";
-import {commonStyles} from '../../../res/styles/commonStyles';
+import commonStyles from '../../../res/commonStyles';
 
 export default class Filtro extends React.Component{
 
@@ -117,24 +117,31 @@ export default class Filtro extends React.Component{
           "De todo"
       ]
       
-      return ( 
-        <DrawerLayoutAndroid style={estilos.container}
-        ref = "mainDrawer"
-        drawerWidth={300}
-        renderNavigationView={() => navigationView}>
-        <Header
-          backgroundColor= {estilos.navBar.backgroundColor}
-          leftComponent={{ icon: 'arrow-back', color: COLORS.fontColorNavBar, onPress:() => Actions.pop() }}
-          centerComponent={{ text: "Filtros", style: estilos.textNavBar }}
-          containerStyle={{
-            marginTop: Platform.OS === 'ios' ? 0 : - 24,
-            borderBottomWidth: 0
-          }}
-        />
-          <View >
+      return (
+        <View style={{backgroundColor: COLORS.background, flex: 1}}>
+            <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
+               <TouchableOpacity
+                   onPress={()=>Actions.pop()}
+                   style={estilos.custom_appbar_icon}>
+                   <Icon name="close" size={30} color={COLORS.fontColorBackground} />
+               </TouchableOpacity>
+            </View>
+            
+            <View style={estilos.main_banner}>
+              <Text style={{
+                  fontFamily: c_style.specialFont,
+                  fontSize: 50,
+                  color: COLORS.accent
+              }}> Filtros </Text>
+            </View>
+            
             <ScrollView>
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
-                <Text style={estilos.Subtítulo}>Distancia del lugar: {this.state.tiempo} minutos</Text>
+                <Text style={{
+                    fontFamily: c_style.secondaryFont,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 18
+                  }}>Distancia del lugar: {this.state.tiempo} minutos</Text>
                 <Slider
                     style={estilos.opcionSlider}
                     thumbTintColor = {COLORS.accent}
@@ -148,7 +155,11 @@ export default class Filtro extends React.Component{
                 />
               </View>
               <View style={estilos.opcion}>
-                <Text style={estilos.Subtítulo}>Presupuesto: {this.state.presupuesto}</Text>
+                <Text style={{
+                    fontFamily: c_style.secondaryFont,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 18
+                  }}>Presupuesto: {this.state.presupuesto}</Text>
                 <Slider
                     style={estilos.opcionSlider}
                     thumbTintColor = {COLORS.accent}
@@ -166,41 +177,60 @@ export default class Filtro extends React.Component{
                 />
               </View>
               <View style={estilos.opcion}>
-                <ToggleSwitch
-                    isOn={this.state.domicilio}
-                    onColor={COLORS.accent}
-                    offColor={COLORS.container}
-                    label="Sólo envíos a domicilio"
-                    labelStyle={estilos.Subtítulo}
-                    size="large"
-                    onToggle={
-                        domicilio => {
-                            this.setState({domicilio});
-                        } 
-                    }
-                />
+                <View style={estilos.opcionRow}>
+                  <Text style={{
+                    fontFamily: c_style.secondaryFont,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 18
+                  }}>Solo envíos a domicilio</Text>
+                  <ToggleSwitch
+                      isOn={this.state.domicilio}
+                      onColor={COLORS.accent}
+                      offColor={COLORS.container}
+                      // label="Sólo envíos a domicilio"
+                      labelStyle={estilos.Subtítulo}
+                      size="large"
+                      onToggle={
+                          domicilio => {
+                              this.setState({domicilio});
+                          } 
+                      }
+                  />
+                </View>
               </View>
               <View style={estilos.opcion}>
-                <ToggleSwitch
-                    isOn={this.state.abierto}
-                    onColor={COLORS.accent}
-                    offColor={COLORS.container}
-                    label="Sólo lugares abiertos"
-                    labelStyle={estilos.Subtítulo}
-                    size="large"
-                    onToggle={
-                        abierto => {
-                            this.setState({abierto});
-                        } 
-                    }
-                />
+                <View style={estilos.opcionRow}>
+                  <Text style={{
+                    fontFamily: c_style.secondaryFont,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 18
+                  }}>Solo envíos a domicilio</Text>
+                  <ToggleSwitch
+                      isOn={this.state.abierto}
+                      onColor={COLORS.accent}
+                      offColor={COLORS.container}
+                      // label="Sólo lugares abiertos"
+                      labelStyle={estilos.Subtítulo}
+                      size="large"
+                      onToggle={
+                          abierto => {
+                              this.setState({abierto});
+                          } 
+                      }
+                  />
+                </View>
               </View>
               <View style={estilos.opcion}>
-                <Text style={estilos.Subtítulo}>Preferencias alimenticias:</Text>
+                <Text style={{
+                    fontFamily: c_style.secondaryFont,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 18
+                  }}>Preferencias alimenticias:</Text>
+                <View style={{height: 10}}></View>
                 <SegmentedControls
                     tint={COLORS.accent}
                     selectedTint= {COLORS.fontColorWhite}
-                    backTint= {COLORS.container}
+                    backTint= {COLORS.background}
                     options={ dietas }
                     // allowFontScaling={ false } // default: true
                     onSelection={ dieta => {
@@ -209,18 +239,23 @@ export default class Filtro extends React.Component{
                         });
                     }}
                     selectedOption={ this.state.dieta }
-                    optionStyle={{fontFamily: 'AvenirNext-Medium'}}
+                    optionStyle={{fontFamily: c_style.secondaryFont, fontSize: 16}}
                     optionContainerStyle={{flex: 1}}
                 />
               </View>
+              <View style={{height: 15}}></View>
               <View style={estilos.opcion}>
-                <TouchableOpacity style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
-                  <Text  style={estilos.botonMenuText}> Continuar </Text>
+                <TouchableOpacity onPress={()=>Actions.pop()} style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
+                  <Text  style={{
+                    fontFamily: c_style.secondaryFontBold,
+                    color: COLORS.fontColorBackground,
+                    fontSize: 20
+                  }}> Comenzar </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
           </View>
-        </DrawerLayoutAndroid>
+        // </DrawerLayoutAndroid>
       );
     }
   }

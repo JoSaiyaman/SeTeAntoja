@@ -140,6 +140,13 @@ export default StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
   },
+  opcionRow:{
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 3
+  },
   opcionGrande:{
     height: 240,
     justifyContent: 'center',
@@ -211,6 +218,47 @@ export default StyleSheet.create({
     backgroundColor: COLORS.container,
     padding: 10,
     borderRadius: 25
-  }
-      
+  },
+  // App bar
+  custom_appbar_overlay: {
+      width: '100%',
+      height: 60,
+      backgroundColor: COLORS.background,
+      flexDirection: 'row',
+      justifyContent: "space-between"
+  },
+  custom_appbar: {
+      width: '100%',
+      height: 60,
+      backgroundColor: COLORS.navBar,
+      flexDirection: 'row',
+      justifyContent: "space-between"
+  },
+  custom_appbar_icon: {
+      padding: 10,
+      justifyContent: "center",
+      alignItems: "center",
+  },
+  appbar_center_button: {
+      marginTop: 12,
+      height: 38,
+      backgroundColor: COLORS.accent,
+      padding: 2,
+      paddingHorizontal: 12,
+      borderRadius: 8,
+      elevation: 4,
+      flexDirection: "row"
+  },
+  // Alternative main
+  main: {
+      flex: 1,
+      justifyContent: "flex-start",
+      alignItems: "center",
+      backgroundColor: COLORS.background,
+  },
+  main_banner: {
+      width: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+  },
 });
