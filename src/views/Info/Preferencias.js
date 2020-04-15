@@ -13,7 +13,8 @@ import {
   DrawerLayoutAndroid
 } from 'react-native';
 import { 
-    Header
+    Header,
+    Icon
   } from 'react-native-elements';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import Slider from '@react-native-community/slider';
@@ -24,7 +25,7 @@ import COLORS from "../../../res/colors";
 import light from "../../../res/styles/lightMode";
 import {commonStyles} from '../../../res/styles/commonStyles';
 
-export default class Filtro extends React.Component{
+export default class Preferencias extends React.Component{
 
   constructor(props){
 
@@ -124,8 +125,7 @@ export default class Filtro extends React.Component{
         renderNavigationView={() => navigationView}>
         <Header
           backgroundColor= {estilos.navBar.backgroundColor}
-          leftComponent={{ icon: 'arrow-back', color: COLORS.fontColorNavBar, onPress:() => Actions.pop() }}
-          centerComponent={{ text: "Filtros", style: estilos.textNavBar }}
+          leftComponent={{ text: "Salir", style: estilos.textNavBar, onPress:() => Actions.pop() }}
           containerStyle={{
             marginTop: Platform.OS === 'ios' ? 0 : - 24,
             borderBottomWidth: 0
@@ -134,70 +134,14 @@ export default class Filtro extends React.Component{
           <View >
             <ScrollView>
               <View style={[estilos.opcion, {paddingTop: 30} ]}>
-                <Text style={estilos.Subtítulo}>Distancia del lugar: {this.state.tiempo} minutos</Text>
-                <Slider
-                    style={estilos.opcionSlider}
-                    thumbTintColor = {COLORS.accent}
-                    minimumValue={0}
-                    maximumValue={120}
-                    step={5}
-                    value={30} // Valor a ser tomado de la "Base de datos"
-                    minimumTrackTintColor={COLORS.accent}
-                    maximumTrackTintColor={COLORS.accent}
-                    onValueChange={value => this.setState({tiempo: value})}
-                />
+                <Text style={estilos.Título}>Preferencias Alimenticias</Text>
               </View>
               <View style={estilos.opcion}>
-                <Text style={estilos.Subtítulo}>Presupuesto: {this.state.presupuesto}</Text>
-                <Slider
-                    style={estilos.opcionSlider}
-                    thumbTintColor = {COLORS.accent}
-                    minimumValue={0}
-                    maximumValue={3}
-                    step={1}
-                    value={1} // Valor a ser tomado de la "Base de datos"
-                    minimumTrackTintColor={COLORS.accent}
-                    maximumTrackTintColor={COLORS.accent}
-                    onValueChange={value => {
-                        let costo = '$'.repeat(value + 1);
-                        this.setState({presupuesto: costo}); 
-                        }
-                    }
-                />
+                <Text style={estilos.CuadroDescripción}>Selecciona el tipo de comida que prefieres comer</Text>
               </View>
-              <View style={estilos.opcion}>
-                <ToggleSwitch
-                    isOn={this.state.domicilio}
-                    onColor={COLORS.accent}
-                    offColor={COLORS.container}
-                    label="Sólo envíos a domicilio"
-                    labelStyle={estilos.Subtítulo}
-                    size="large"
-                    onToggle={
-                        domicilio => {
-                            this.setState({domicilio});
-                        } 
-                    }
-                />
-              </View>
-              <View style={estilos.opcion}>
-                <ToggleSwitch
-                    isOn={this.state.abierto}
-                    onColor={COLORS.accent}
-                    offColor={COLORS.container}
-                    label="Sólo lugares abiertos"
-                    labelStyle={estilos.Subtítulo}
-                    size="large"
-                    onToggle={
-                        abierto => {
-                            this.setState({abierto});
-                        } 
-                    }
-                />
-              </View>
-              <View style={estilos.opcion}>
-                <Text style={estilos.Subtítulo}>Preferencias alimenticias:</Text>
+              <View style={{ paddingTop:30, paddingBottom: 30 }}>
                 <SegmentedControls
+                    direction={'column'}
                     tint={COLORS.accent}
                     selectedTint= {COLORS.fontColorWhite}
                     backTint= {COLORS.container}
@@ -208,11 +152,21 @@ export default class Filtro extends React.Component{
                             dieta
                         });
                     }}
+                    
+                    containerStyle= {{
+                        marginLeft: 20,
+                        marginRight: 20,
+                    }}
                     selectedOption={ this.state.dieta }
-                    optionStyle={{fontFamily: 'AvenirNext-Medium'}}
+                    optionStyle={{fontSize: 24, fontFamily: 'AvenirNext-Medium'}}
                     optionContainerStyle={{flex: 1}}
                 />
               </View>
+              <Icon 
+                name='restaurant'
+                color={COLORS.accent}
+                size = {43}
+                />
               <View style={estilos.opcion}>
                 <TouchableOpacity style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
                   <Text  style={estilos.botonMenuText}> Continuar </Text>

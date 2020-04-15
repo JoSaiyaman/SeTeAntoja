@@ -15,6 +15,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Menu from './views/Menu';
 import Filtro from './views/Buscar/Filtro';
+import Preferencias from './views/Info/Preferencias';
 import { MealExploration } from './views/MealExploration/MealExploration';
 
 // import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
@@ -128,7 +129,7 @@ export default class RouterComponent extends React.Component {
                 
 
 
-                <Stack
+                {/* <Stack
                     key="main"
                     type="reset"
                     hideNavBar={true}
@@ -151,10 +152,10 @@ export default class RouterComponent extends React.Component {
                         initial              
                     />
 
-                </Stack>
+                </Stack> */}
 
 
-                <Stack
+                {/* <Stack
                     key="buscar"
                     hideNavBar={true}
                     style={style.titleStyle}
@@ -165,6 +166,22 @@ export default class RouterComponent extends React.Component {
                         title=""
                         key="filtro"
                         component={Filtro}
+                        initial                        
+                    />
+
+                </Stack> */}
+
+                <Stack
+                    key="info"
+                    hideNavBar={true}
+                    style={style.titleStyle}
+                >
+                    
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="preferencias"
+                        component={Preferencias}
                         initial                        
                     />
 

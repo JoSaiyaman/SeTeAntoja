@@ -63,7 +63,7 @@ export default StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.background,
     justifyContent: "space-around"
   },
   header:{
@@ -140,6 +140,13 @@ export default StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
   },
+  opcionGrande:{
+    height: 240,
+    justifyContent: 'center',
+    // alignItems: 'center',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
   opcionSlider:{
     width: 300, 
     height: 40
@@ -169,10 +176,10 @@ export default StyleSheet.create({
   textNavBar:{
     alignItems: 'center',
     fontSize: 18,
-    color: '#fff'
+    color: COLORS.fontColorNavBar
   },
   botonMenuText:{
-    color:'#fff',
+    color: COLORS.fontColorWhite,
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -180,7 +187,29 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     margin:5,
-    fontSize: 18
+    fontSize: 18,
+    color: COLORS.fontColorWhite
+  },
+  Título:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin:5,
+    fontSize: 24,
+    color: COLORS.accent,
+    fontWeight: "bold",
+    paddingBottom: 15
+    // backgroundColor: 'blue'
+  },
+  CuadroDescripción:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    margin:5,
+    fontSize: 20,
+    color: COLORS.fontColorGreyContainer,
+    backgroundColor: COLORS.container,
+    padding: 10,
+    borderRadius: 25
   }
       
 });
