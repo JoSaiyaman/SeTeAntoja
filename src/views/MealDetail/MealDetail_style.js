@@ -11,7 +11,7 @@ export const style = (context)=>{
 
     if(width == null || height == null){
 
-        throw new Error("MealExploration_style: width and height must be defined")
+        throw new Error("MealDetail_style: width and height must be defined")
 
     }
 
@@ -60,45 +60,86 @@ export const style = (context)=>{
             justifyContent: "center",
             alignItems: "center",
         },
-        meal_card: {
+        meal_wrapper: {
+            width: '100%',
+        },
+        meal_detail_card: {
             elevation: 4,
-            borderRadius: 20,
+            // borderRadius: 20,
             justifyContent: "center",
             backgroundColor: "white",
-            aspectRatio: 300 / 400
+            aspectRatio: 300 / 300
         },
-        meal_card_inner: {
+        meal_detail_card_inner: {
             justifyContent: "flex-end",
             backgroundColor: 'black',
-            borderRadius: 20,
+            // borderRadius: 20,
+            // borderRadius
         },
-        meal_card_image: {
-            borderRadius: 21,
+        meal_detail_card_image: {
+            // borderRadius: 21,
         },
         meal_card_gradient: {
             aspectRatio: 400 / 300,
             paddingLeft: 15,
             paddingRight: 15,
-            borderRadius: 20,
+            // borderRadius: 20,
             justifyContent: 'flex-end'
         },
-        meal_card_title: {
+        meal_detail_card_gradient: {
+            // aspectRatio: 400 / 300,
+            // paddingLeft: 15,
+            // paddingRight: 15,
+            // borderRadius: 20,
+            justifyContent: 'flex-end'
+        },
+        meal_detail_container:{
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+            borderTopWidth: 1,
+            borderTopColor: '#333'
+        },
+        meal_detail_title: {
+            fontFamily: commonStyles(context).secondaryFontBold,
+            color: COLORS.fontColorWhite,
+            fontSize: 24
+        },
+        meal_detail_subtitle: {
             fontFamily: commonStyles(context).secondaryFontBold,
             color: COLORS.fontColorWhite,
             fontSize: 20
         },
-        meal_card_description: {
+        meal_detail_description: {
             fontFamily: commonStyles(context).secondaryFont,
-            color: COLORS.fontColorWhite,
-            fontSize: 16
+            color: COLORS.fontColorBackground,
+            fontSize: 18
+        },
+        meal_detail_supplier: {
+            fontFamily: commonStyles(context).secondaryFont,
+            color: COLORS.fontColorBackground,
+            fontSize: 18,
+            marginVertical: 3,
+            paddingVertical: 4,
+            paddingHorizontal: 8,
+            alignSelf: "flex-start",
+            borderRadius: 8,
+            backgroundColor: COLORS.navBar,
         },
         container_judge: {
-            flex: 1,
-            // backgroundColor: 'pink',
+            // flex: 1,
+            // height: 120,
+            // elevation: 1,
+            width: "100%",
+            borderTopWidth: 1,
+            borderColor: COLORS.navBar,
+            // backgroundColor: COLORS.navBar,
             justifyContent: 'flex-end',
             alignContent: 'center',
             alignItems: 'center',
-            padding: 15
+            padding: 15,
+            // borderTopRightRadius: 25,
+            // borderTopLeftRadius: 25,
+            // borderRadius: 25,
         },  
         row_judge: {
             aspectRatio: 300 / 70,
@@ -115,7 +156,36 @@ export const style = (context)=>{
         btn_judge_text: {
             fontFamily: commonStyles(context).specialFont,
             fontSize: 35,
-        }
+        },
+        meal_detail_tile: {
+            // backgroundColor: COLORS.accent,
+            padding: 5,
+            // borderRadius: 8,
+            // elevation: 1,
+            flexDirection: "row",
+            alignItems: 'center'
+        },
+        meal_detail_tile_text: {
+            color: COLORS.fontColorBackground,
+            fontSize: 18,
+            marginLeft: 6,
+            fontFamily: commonStyles(context).secondaryFont,
+        },
+        secondary_bold: {
+            fontFamily: commonStyles(context).secondaryFontBold,
+        },
+        meal_detail_phone: {
+            padding: 5,
+            flexDirection: "row",
+            justifyContent: 'space-between',
+            alignItems: 'center'
+        },
+        meal_detail_phone_text: {
+            color: COLORS.fontColorBackground,
+            fontSize: 18,
+            marginLeft: 6,
+            fontFamily: commonStyles(context).secondaryFont,
+        },
     });
 
 }
