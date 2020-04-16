@@ -18,14 +18,14 @@ import Filtro from './views/Buscar/Filtro';
 import Preferencias from './views/Info/Preferencias';
 import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
-import {MealSelection} from './views/MealExploration/MealSelection';
+import { MealSelection } from './views/MealExploration/MealSelection';
 import { MealDetail } from './views/MealDetail/MealDetail';
 
-// import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
-// import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';
+import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
+import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';
 // import { ProfileCompletion } from './views/ProfileCompletion/ProfileCompletion';
 
-// import {Landing} from './views/Landing/Landing';
+import {Landing} from './views/Landing/Landing';
 
 import COLORS from '../res/colors';
 
@@ -90,7 +90,7 @@ export default class RouterComponent extends React.Component {
         return (
         <Router tintColor='white' navigationBarStyle={[style.navBar, {backgroundColor: COLORS.primary}]} titleStyle={{color: "white"}}>
             <Stack hideNavBar key="root">
-                {/* <Stack
+                <Stack
                     key="auth"
                     type="reset"
                     style={style.navBarStyle}
@@ -117,7 +117,7 @@ export default class RouterComponent extends React.Component {
 
                 </Stack>
 
-                <Stack
+                {/* <Stack
                     key="profile_completion_stack"
                     type="reset"
                     style={style.navBarStyle}

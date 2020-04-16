@@ -204,7 +204,7 @@ export default class Filtro extends React.Component{
                     fontFamily: c_style.secondaryFont,
                     color: COLORS.fontColorBackground,
                     fontSize: 18
-                  }}>Solo envíos a domicilio</Text>
+                  }}>Solo lugares abiertos</Text>
                   <ToggleSwitch
                       isOn={this.state.abierto}
                       onColor={COLORS.accent}

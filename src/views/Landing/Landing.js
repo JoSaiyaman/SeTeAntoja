@@ -15,14 +15,15 @@ import {
   Alert,
   Button
 } from 'react-native';
-import { Form } from 'react-native-form-auto-next';
 import {style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './Landing_style';
 import {commonStyles} from '../../../res/styles/commonStyles';
-import IMAGES from '../../../res/images';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Overlay } from 'react-native-elements';
 import COLORS from '../../../res/colors';
 import {Actions} from 'react-native-router-flux';
+import Video from "react-native-video";
+import LinearGradient from 'react-native-linear-gradient';
+
 
 import {
     goToPhoneRegistration,
@@ -57,27 +58,39 @@ export class Landing extends Component{
         let c_style = commonStyles(c_style_context);
         return(
             <View style={view_style.main}>
-
+                
+                <Video
+                    source={require("../../../res/videos/background_video.mp4")}
+                    style={view_style.backgroundVideo}
+                    muted={true}
+                    repeat={true}
+                    resizeMode={"cover"}
+                    rate={1.0}
+                    ignoreSilentSwitch={"obey"}
+                />
+                <LinearGradient colors={['rgba(0,0,0,.6)', 'rgba(0,0,0,.6)']} style={view_style.background_gradient}>
+                </LinearGradient>
                 <View style={view_style.column}>
-
-                    <Text style={view_style.centered_paragraph}>Mantente comunicado con tus grupos familiares.</Text>
+                    <Text style={view_style.centered_paragraph}>Explora, descubre y prueba el sabor de lo local</Text>
 
                     <View style={{height: 20}}></View>
 
-                    <Text style={view_style.brand_label}>Famili<Text style={view_style.brand_label_inner}>App</Text></Text>
+                    <Text style={view_style.brand_label}>¿Se te antoja?</Text>
 
                     <View style={{height: 10}}></View>
 
-                    <Image  style={view_style.family_group_image} source={IMAGES.family_group_white}></Image>
 
                     <View style={{height: 20}}></View>
 
-                    <Text style={view_style.call_to_action}>Crea tu cuenta FamiliApp</Text>
+                    <Text style={view_style.call_to_action}>Crea tu cuenta</Text>
 
                     <View style={{height: 10}}></View>
 
                     <TouchableOpacity
-                        onPress={() => goToPhoneRegistration(this)} 
+                        onPress={() =>
+                            Actions.phone_registration() 
+                            // goToPhoneRegistration(this)
+                        } 
                         style={view_style.tile_button}>
 
                         <Icon name="mobile" size={30} color="white" />
@@ -93,7 +106,7 @@ export class Landing extends Component{
                     <TouchableOpacity
                         onPress={() => {
                             // Actions.profile_completion()
-                            Actions.groups()
+                            Actions.main()
                             // goToPhoneRegistration(this)
                         }}>
 

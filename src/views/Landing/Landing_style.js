@@ -21,7 +21,7 @@ export const style = (context)=>{
             flex: 1,
             justifyContent:"center",
             alignItems: "center",
-            backgroundColor:COLORS.primary,
+            backgroundColor:COLORS.background,
         },
         brand_label: {
             fontFamily: commonStyles(context).specialFont,
@@ -37,7 +37,7 @@ export const style = (context)=>{
             resizeMode: 'stretch'
         },
         centered_paragraph: {
-            width: 200,
+            width: 260,
             fontFamily: commonStyles(context).primaryFont,
             color: COLORS.primaryFontColor,
             fontSize: 20,
@@ -50,7 +50,7 @@ export const style = (context)=>{
             textAlign: "center",
         },
         tile_button: {
-            backgroundColor: COLORS.buttons,
+            backgroundColor: COLORS.accent,
             padding: 12,
             borderRadius: 8,
             elevation: 1,
@@ -67,6 +67,24 @@ export const style = (context)=>{
         column: {
             flexDirection: "column",
             alignItems: 'center'
+        },
+        backgroundVideo: {
+            height: height,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            alignItems: "stretch",
+            bottom: 0,
+            right: 0
+        },
+        background_gradient: {
+            height: height,
+            position: "absolute",
+            top: 0,
+            left: 0,
+            alignItems: "stretch",
+            bottom: 0,
+            right: 0
         }
     });
 
