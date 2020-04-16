@@ -55,7 +55,7 @@ export class MealSelection extends Component{
         let marginLeft = this.width*0.05 - this.padding;
         
         let onClick = ()=>{
-            
+            Actions.meal_usual();
         }
         
         return(
