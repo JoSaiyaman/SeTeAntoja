@@ -34,7 +34,7 @@ export class MealSearch extends Component{
             loading: false,
             swipedAllCards: false,
             swipeDirection: '',
-            cardIndex: 0,
+            cardIndex: 1,
             cards: getMealProfileList(this),
             cravedMeals: [],
             highlyCravedMeals: []
@@ -204,7 +204,6 @@ export class MealSearch extends Component{
                 ref={swiper => {
                   this.swiper = swiper
                 }}
-                // onSwiped={(index) => this.onSwiped(index, 'general')}
                 onSwipedLeft={(index) => this.onSwiped(index,'left')}
                 onSwipedRight={(index) => this.onSwiped(index, 'right')}
                 onSwipedTop={(index) => this.onSwiped(index, 'top')}
