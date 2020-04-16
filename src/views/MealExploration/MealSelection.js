@@ -9,17 +9,19 @@ import {
   Image,
   FlatList,
   StyleSheet,
+  ImageBackground
 } from 'react-native';
 import {style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealExploration_style';
-import {commonStyles} from '../../../res/styles/commonStyles';
+import commonStyles from '../../../res/commonStyles';
 import { Input, Overlay, colors } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../../res/colors';
 import { Actions } from 'react-native-router-flux';
+import LinearGradient from 'react-native-linear-gradient';
 
 export class MealSelection extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         let {width, height} = Dimensions.get("window");
 
         this.width = width;
@@ -27,84 +29,59 @@ export class MealSelection extends Component{
 
         this.state = {
             loading: false,
-            platillos: [
-                {"name":"La matona"},
-                {"name":"Tacos de barbacha"},
-                {"name":"Burro San Mario"},
-                {"name":"Spaghetti del Santo"},
-                {"name":"Discada casera"}
-            ],
+            mealProfileList: this.props.mealProfileList
         };
     }
 
     componentDidMount() {
-        // this.setState({
-        //     pickerData: this.phone.getPickerData(),
-        //     phoneNumber: '+' + this.phone.getCountryCode(),
-        // });
-        
-        // setTimeout(() => this.phone.focus(), 500)
+        console.log(this.state.mealProfileList)
     }
 
-    renderList(name){
+    renderList(mealProfile){
 
-        //Sirve para renderear la lista
-        
-        let elementWidth = this.width * 0.4;
-        let elementHeight = this.height * 0.13;
-        let marginLeft = this.width*0.05 - this.padding;
-        
-        let onClick = ()=>{
-            
-        }
+        //Sirve para renderear la lista        
+        let c_style = commonStyles(this);
         
         return(
-            
-            
-
-            <View style={{
-                flexDirection:"column",
-                justifyContent:"center",
-                alignItems:"center",
-                backgroundColor: colors.accent,
-                width: this.width*0.3,
-                height: this.height*0.2,
-                marginHorizontal: this.width*0.04,
-                marginVertical: this.height*0.03
-                
-            }}>
-                <TouchableOpacity 
-                onPress={onClick.bind(this)} 
-                style={{
-                    backgroundColor:"white",
-                    borderRadius:15,                
-                    backgroundColor: COLORS.accent,
-                    flex:1,}}>
-
-                    <View style={{
-                        justifyContent:"center",
-                        alignContent:"center",
-                        alignItems:"center",
-                        color:"white",
-                        padding:10
+            <TouchableOpacity onPress={() => Actions.meal_detail({mealProfile: mealProfile})}>
+                <View style={{
+                    width: this.width * 0.4,
+                    aspectRatio: 300 / 400,
+                    margin: 10,
+                    }}>
+                    <ImageBackground
+                        source={mealProfile.images[0]}
+                        imageStyle={{
+                            borderRadius: 20
+                        }}
+                        style={{width: '100%', height: '100%',
+                            justifyContent: "flex-end",
+                            backgroundColor: 'black',
+                            borderRadius: 20,
+                            // borderRadius
                         }}>
-
-                        <Text style={{
-                            color:"white",
-                            fontSize: 18,
-                            fontWeight:"bold",
-                            textAlign: "justify",
-                            textAlign:"center"
+                        <LinearGradient 
+                            colors={['rgba(0,0,0,.0)', 'rgba(0,0,0,.7)', 'rgba(0,0,0,.9)']} 
+                            style={{
+                                aspectRatio: 400 / 300,
+                                borderRadius: 20,
+                                justifyContent: "flex-end",
+                                padding: 10
                             }}>
+                            <Text style={{
+                                color: COLORS.fontColorWhite,
+                                fontFamily: c_style.secondaryFont,
+                                fontSize: 18,
+                                textAlign: "justify",
+                                textAlign:"center"
+                                }}>
+                                {mealProfile.name}
 
-                            {name}
-
-                        </Text>
-                    </View>                
-                </TouchableOpacity>
-            </View>            
-                        
-                
+                            </Text>
+                        </LinearGradient> 
+                    </ImageBackground>
+                </View>
+            </TouchableOpacity>
         )
     }
 
@@ -134,9 +111,9 @@ export class MealSelection extends Component{
 
         }
 
-        let c_style = commonStyles(c_style_context);
+        let c_style = commonStyles(this);
 
-        let dataToRender = this.state.platillos;
+        let dataToRender = this.state.mealProfileList;
  
         return (
             <View style={view_style.main}>
@@ -146,56 +123,91 @@ export class MealSelection extends Component{
                     <ActivityIndicator size="large" color={COLORS.primary}></ActivityIndicator>
                 </Overlay>
 
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'flex-start',
+                    width: this.width,
+                    }}>
+                    <TouchableOpacity
+                        onPress={()=>Actions.pop()}
+                        style={{
+                            padding: 10,
+                            paddingBottom: 0,
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}>
+                        <Icon name="close" size={30} color={COLORS.fontColorBackground} />
+                    </TouchableOpacity>
+                </View>
                 
-                <View style={{height: this.height*0.85, 
-                    width: this.width, 
-                    backgroundColor: COLORS.background,
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    alignItems:"center"}}>
-
-                    <View style={{height: 25}}></View>
-                    <View style={{height: this.height*0.1,
+                <View style={{
                     justifyContent:"center"}}>
-                        <Text style={{color:COLORS.fontColorAccent,
-                            fontSize: 26,
-                            fontWeight: "bold",}}>
-                            ¿Cuál se te antoja más?
-                        </Text>
-                    </View>
-                    <View style={{height: this.height*0.1,
+                    <Text style={{
+                        color:COLORS.fontColorAccent,
+                        fontSize: 26,
+                        fontFamily: c_style.specialFont
+                        }}>
+                        ¿Cuál se te antoja más?
+                    </Text>
+                </View>
+                
+                <View style={{
                     justifyContent:"flex-start"}}>
-                        <Text style={{color:COLORS.fontColorAccentContrast,
-                            fontSize: 18,
-                            fontWeight: "bold",}}>
-                            Tu selección
-                        </Text>
-                    </View>
-                    <View style={{flex:1,
-                    justifyContent:"center",
-                        alignContent:"center"}}>
+                    <Text style={{
+                        color:COLORS.fontColorBackground,
+                        fontFamily: c_style.secondaryFont,
+                        fontSize: 18,
+                        }}>
+                        Tu selección
+                    </Text>
+                </View>
+                
+                <View style={{height: 10}}></View>
+                
+                <ScrollView
+                    contentContainerStyle={{
+                        justifyContent: "flex-start",
+                        alignItems: "center"
+                    }} 
+                    style={{
+                        // height: this.height*0.85, 
+                        width: this.width, 
+                        backgroundColor: COLORS.background,
+                        flexDirection: "column",
+                    }}>
+
+                    
+                    <View style={{
+                        backgroundColor: COLORS.background,
+                        width: this.width,
+                        }}>
                         <FlatList
+                            contentContainerStyle={{
+                                paddingTop: 10, 
+                                alignItems: "center",
+                            }}
+                            style={{
+                                width: this.width,
+                            }}
                             data={dataToRender}
                             //ListEmptyComponent={this.renderListEmpty()}
                             renderItem={({item})=>{
-                                
-                                let name = item.name;
-                                
-                                return this.renderList(name);
+                                                                
+                                return this.renderList(item);
 
                             }}
                             keyExtractor={item => item.name}
                             extraData={this.state.dataToRender}
                             ListFooterComponent={() => <View></View>}
                             ListFooterComponentStyle={{height: 30}} 
-                            numColumns= {2} />
+                            numColumns= {2} 
+                        />
                     </View>
-                </View>
+                </ScrollView>
+
                 <View style={{
                     flexDirection:"row",
-                    flex:2,
-                    height:this.height*0.15,
-                    backgroundColor:COLORS.container,
+                    backgroundColor:COLORS.background,
                     justifyContent:"center",
                     alignItems:"center"}}>
                     <View style={{flex:3}}>
@@ -203,7 +215,7 @@ export class MealSelection extends Component{
                         //onPress={()=>this.verifyNumberAndRequestSMS()}
                             style={{width: this.width*0.45,
                                 height: this.height*0.08,
-                            backgroundColor: COLORS.container,
+                            // backgroundColor: COLORS.container,
                             borderRadius:30,
                             justifyContent: "center",
                             alignContent:"center",
@@ -211,37 +223,40 @@ export class MealSelection extends Component{
                             borderWidth: 0,
                             borderColor: COLORS.accent}}>
 
-                            <Text style={{textAlign:"center",
-                            color:COLORS.accent,
-                            fontSize: 20
+                            <Text style={{
+                                textAlign:"center",
+                                color:COLORS.fontColorAccent,
+                                fontSize: 20,
+                                fontFamily: c_style.secondaryFont
                                 }}>Descartar
                             </Text>
-
                         </TouchableOpacity>
                     </View>
+
                     <View style={{flex:5}}>
                         <TouchableOpacity
                             //onPress={()=>this.verifyNumberAndRequestSMS()}
                             style={{width: this.width*0.54,
                                 height: this.height*0.06,
-                            backgroundColor: COLORS.accent,
+                            backgroundColor: COLORS.container,
                             borderRadius:30,
                             justifyContent: "center",
                             alignContent:"center",
                             alignSelf:"center",
                             borderWidth: 0,
-                            borderColor: COLORS.accent}}
+                            borderColor: COLORS.accent
+                            }}
                             
                             onPress={()=>Actions.pop()}>
 
-                            <Text style={{textAlign:"center",
-                            color:COLORS.fontColorWhite,
-                            fontSize: 20,
-                            fontWeight: "bold"
-                                }}>Seguir buscando
+                            <Text style={{
+                                textAlign:"center",
+                                color:COLORS.fontColorAccent,
+                                fontSize: 20,
+                                fontFamily: c_style.secondaryFont
+                                }}>
+                                Seguir buscando
                             </Text>
-
-
                         </TouchableOpacity>
                     </View>
                     

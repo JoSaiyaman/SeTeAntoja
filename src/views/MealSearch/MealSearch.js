@@ -60,8 +60,8 @@ export class MealSearch extends Component{
       let cravedMeals = this.state.cravedMeals
       let highlyCravedMeals = this.state.highlyCravedMeals
       let mealProfileList = []
-      mealProfileList.join(cravedMeals)
-      mealProfileList.join(highlyCravedMeals)
+      mealProfileList = mealProfileList.concat(cravedMeals)
+      mealProfileList = mealProfileList.concat(highlyCravedMeals)
       Actions.meal_selection({
         mealProfileList: mealProfileList
       })
