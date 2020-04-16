@@ -12,17 +12,21 @@ import {
   ImageBackground
 } from 'react-native';
 import {style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealUsual_style';
-import {commonStyles} from '../../../res/styles/commonStyles';
+import commonStyles from '../../../res/commonStyles';
 import { Input, Overlay, colors } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../../res/colors';
 import { Actions } from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+    getMealProfileList
+} from '../MealExploration/MealExploration_controller';
 
 export class MealUsual extends Component{
     constructor() {
         super();
         let {width, height} = Dimensions.get("window");
+        let mealProfileList = getMealProfileList()
 
         this.width = width;
         this.height = height;
@@ -30,118 +34,73 @@ export class MealUsual extends Component{
         this.state = {
             loading: false,
             recientes: [
-                {"name":"La matona"},
-                {"name":"Tacos de barbacha"},
-                {"name":"Burro San Mario"},
+                mealProfileList[0],
+                mealProfileList[1],
+                mealProfileList[2],
             ],
             favoritos: [
-                {"name":"La matona","business":"Las matonas burguers & Doggos","price":"79.00 MXN"},
-                {"name":"Tacos e barbacha adobada bien mexicana","business":"Tacos Don Ramón","price":"60.00 MXN"},
+                mealProfileList[3],
+                mealProfileList[4],
             ],
             recurrentes: [
-                {"name":"La matona","business":"Las matonas burguers & Doggos","price":"79.00 MXN"},
-                {"name":"Tacos e barbacha adobada bien mexicana","business":"Tacos Don Ramón","price":"60.00 MXN"},
+                mealProfileList[0],
+                mealProfileList[1],
             ],
         };
     }
 
     componentDidMount() {
-        // this.setState({
-        //     pickerData: this.phone.getPickerData(),
-        //     phoneNumber: '+' + this.phone.getCountryCode(),
-        // });
-        
-        // setTimeout(() => this.phone.focus(), 500)
     }
 
-    renderList(name){
-
-        //Sirve para renderear la lista
-        
-        let elementWidth = this.width * 0.4;
-        let elementHeight = this.height * 0.13;
-        let marginLeft = this.width*0.05 - this.padding;
-        
-        let onClick = ()=>{
-            
-        }
-        
+    renderList(mealProfile){        
         return(
-            
-            
-
-            <View style={{
-                flexDirection:"column",
-                justifyContent:"center",
-                alignItems:"center",
-                backgroundColor: colors.accent,
-                width: this.width*0.3,
-                height: this.height*0.2,
-                marginHorizontal: this.width*0.0,
-                marginVertical: this.height*0.03
-                
-            }}>
-                <TouchableOpacity 
-                onPress={onClick.bind(this)} 
-                style={{
-                    backgroundColor:"white",
-                    borderRadius:15,                
-                    backgroundColor: COLORS.accent,
-                    flex:1,}}>
-
-                    <View style={{
-                        justifyContent:"center",
-                        alignContent:"center",
-                        alignItems:"center",
-                        color:"white",
-                        paddingHorizontal: 20,
-                        paddingVertical: 10,
-                        borderTopWidth: 1,
-                        borderTopColor: COLORS.divider
+            <TouchableOpacity onPress={() => Actions.meal_detail({mealProfile: mealProfile})}>
+                <View style={{
+                    aspectRatio: 280 / 400,
+                    }}>
+                    <ImageBackground
+                        source={mealProfile.images[0]}
+                        imageStyle={{
+                            borderRadius: 20
+                        }}
+                        style={{width: '100%', height: '100%',
+                            justifyContent: "flex-end",
+                            backgroundColor: 'black',
+                            borderRadius: 20,
+                            // borderRadius
                         }}>
-
-                        <ImageBackground
-                            source={require('../../../res/images/food_burger_1.jpg')}
-                            style={{width: '100%', height: '100%',
-                                justifyContent: "flex-end",
-                                backgroundColor: 'black',
-                                // borderRadius: 20,
-                                // borderRadius
-                                }}>
-                            <LinearGradient colors={['rgba(0,0,0,.0)', 'rgba(0,0,0,.3)', 'rgba(0,0,0,.7)']} 
-                            style={{aspectRatio: 400 / 300,
-                                    paddingLeft: 30,
-                                    paddingRight: 30,
-                                    // borderRadius: 20,
-                                    justifyContent: 'flex-end'}}>
-                            </LinearGradient> 
-                        </ImageBackground>
-                    </View>                
-                </TouchableOpacity>
-            </View>            
+                        <LinearGradient 
+                            colors={['rgba(0,0,0,.0)', 'rgba(0,0,0,.3)', 'rgba(0,0,0,.7)']} 
+                            style={{
+                                aspectRatio: 400 / 300,
+                                borderRadius: 20,
+                            }}>
+                        </LinearGradient> 
+                    </ImageBackground>
+                </View>
+            </TouchableOpacity>
         )
     }
 
-    renderListFavorites(name, business){
+    renderListFavorites(mealProfile){
 
         //Sirve para renderear la lista
-        
-        let onClick = ()=>{
-            
-        }
+        let c_style = commonStyles(this);
 
         return(
 
             <TouchableOpacity 
-            //onPress={onClick.bind(this)} 
-            style={{width:this.width * 0.85,
+            onPress={() => Actions.meal_detail({mealProfile: mealProfile})} 
+            style={{
+                width:this.width * 0.85,
                 height:this.height * 0.15,
                 flexDirection: "row",
                 justifyContent:"flex-start",
                 backgroundColor:"white",
-                borderRadius:0,
+                borderRadius:10,
                 marginBottom:10,      
-                backgroundColor: COLORS.accent,}}>
+                backgroundColor: COLORS.container,
+                }}>
 
                 <View style={{width:this.width * 0.40,
                     height:this.height * 0.15,
@@ -150,49 +109,54 @@ export class MealUsual extends Component{
                     alignContent:"center",
                     alignItems:"center",
                     color:"white",
-                    marginLeft:20}}>
+                    marginLeft:20
+                    }}>
 
                     <View
-                        style={{width:this.width*0.20,
+                        style={{
+                            width:this.width*0.20,
                             height: this.height*0.12,
-                            backgroundColor: "black",
-                        
                         }}>
                         <ImageBackground
-                            source={require('../../../res/images/food_burger_1.jpg')}
-                            style={{width: '100%', height: '100%',
+                            source={mealProfile.images[0]}
+                            imageStyle={{
+                                borderRadius: 10
+                            }}
+                            style={{
+                                width: '100%', height: '100%',
                                 justifyContent: "flex-end",
                                 backgroundColor: 'black',
-                                // borderRadius: 20,
-                                // borderRadius
-                                }}>
+                                borderRadius: 10,
+                            }}>
                             <LinearGradient colors={['rgba(0,0,0,.0)', 'rgba(0,0,0,.3)', 'rgba(0,0,0,.7)']} 
-                            style={{aspectRatio: 400 / 300,
-                                    paddingLeft: 15,
-                                    paddingRight: 15,
-                                    // borderRadius: 20,
-                                    justifyContent: 'flex-end'}}>
+                                style={{
+                                    aspectRatio: 400 / 300,
+                                    borderRadius: 10,
+                                }}>
                             </LinearGradient> 
                         </ImageBackground>
                     </View>
+
                     <View style={{
                         flexDirection:"column",
                         marginLeft: 20,
                         width: this.width*0.5
                         }}>
-                        <Text style={{color:"white",
+                        <Text style={{
+                            color: COLORS.fontColorWhite,
                             fontSize: 18,
-                            fontWeight:"bold",
-                            textAlign: "left"}}>
-
-                            {name}
-
+                            fontFamily: c_style.secondaryFontBold,
+                            textAlign: "left"
+                        }}>
+                            {mealProfile.name}
                         </Text>
-                        <Text style={{color:"white",
+                        <Text style={{
+                            color: COLORS.fontColorBackground,
+                            fontFamily: c_style.secondaryFont,
                             fontSize: 16,
                             textAlign: "left"}}>
 
-                            {business}
+                            {mealProfile.supplierName}
                         </Text>
                     </View>
                 </View>                
@@ -228,129 +192,157 @@ export class MealUsual extends Component{
 
         }
 
-        let c_style = commonStyles(c_style_context);
+        let c_style = commonStyles(this);
 
         let dataToRender = this.state.recientes;
         let listaFavoritos = this.state.favoritos;
         let listaRecurrentes = this.state.recurrentes;
  
         return (
-            <View style={view_style.main}>
+            <ScrollView style={view_style.main}>
+
                 <Overlay isVisible={this.state.loading}
                     overlayStyle={{height:this.width*0.1, width:this.width*0.1}}
                     >
                     <ActivityIndicator size="large" color={COLORS.primary}></ActivityIndicator>
                 </Overlay>
-
                 
-                <View style={{height: this.height*1.5, 
+                <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <TouchableOpacity
+                        onPress={()=>Actions.pop()}
+                        style={{
+                            padding: 10,
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}>
+                        <Icon name="close" size={30} color={COLORS.fontColorBackground} />
+                    </TouchableOpacity>
+                </View>
+                
+                <View style={{
                     width: this.width, 
                     backgroundColor: COLORS.background,
                     flexDirection: "column",
                     justifyContent: "flex-start",
                     alignItems:"center"}}>
 
-                    <View style={{height: 25}}></View>
-                    <View style={{height: this.height*0.1,
-                    justifyContent:"center"}}>
-                        <Text style={{color:COLORS.fontColorAccent,
-                            fontSize: 26,
-                            fontWeight: "bold",}}>
-                            Lo que se te ha antojado
+                    {/* <View style={{height: 25}}></View> */}
+
+                    <View style={{
+                        justifyContent:"center"}}>
+                        <Text style={{
+                            fontFamily: c_style.specialFont,
+                            fontSize: 50,
+                            color: COLORS.accent
+                            }}>
+                            Antojos
                         </Text>
                     </View>
-                    <View style={{height: this.height*0.02,
-                    width: this.width * 0.85,
-                    justifyContent:"flex-start",
-                    alignItems: "flex-start"}}>
-                        <Text style={{color:COLORS.fontColorAccentContrast,
+
+                    <View style={{
+                        marginVertical: 10,
+                        width: this.width * 0.85,
+                        justifyContent:"flex-start",
+                        alignItems: "flex-start"
+                        }}>
+                        <Text style={{
+                            color: COLORS.fontColorAccent,
+                            fontFamily: c_style.secondaryFont,
                             fontSize: 20,
-                            fontWeight: "bold",}}>
+                        }}>
                             Recientes
                         </Text>
                     </View>
-                    <View style={{height:this.height*0.28,
-                    justifyContent:"center",
-                        alignContent:"center"}}>
+
+                    <View style={{
+                        width: this.width,
+                        paddingHorizontal: 20,
+                        flexDirection: "row",
+                        aspectRatio: 400 / 150,
+                        justifyContent: "space-evenly"
+                        }}>
+                        {dataToRender.map(mealProfile => {
+                            return (
+                                this.renderList(mealProfile)
+                            );
+                        })}  
+                    </View>
+
+                    <View style={{height: 10}}></View>
+
+                    <View style={{height: this.height*0.05,
+                        width: this.width * 0.85,
+                        justifyContent:"flex-start",
+                        alignItems: "flex-start"}}>
+                        <Text style={{
+                            color: COLORS.fontColorAccent,
+                            fontFamily: c_style.secondaryFont,
+                            fontSize: 20,
+                            }}>
+                            Se te antojaron mucho
+                        </Text>
+                    </View>
+
+                    <View style={{
+                        flex:1,
+                        justifyContent:"flex-start",
+                        alignContent:"center"
+                        }}>
                         <FlatList
-                            data={dataToRender}
+                            data={listaFavoritos}
                             //ListEmptyComponent={this.renderListEmpty()}
                             renderItem={({item})=>{
                                 
-                                let name = item.name;
-                                
-                                return this.renderList(name);
+                                return this.renderListFavorites(item);
 
                             }}
                             keyExtractor={item => item.name}
-                            extraData={this.state.dataToRender}
+                            extraData={this.state.listaFavoritos}
                             ListFooterComponent={() => <View></View>}
-                            numColumns= {3} />
+                            numColumns= {1} 
+                        />    
                     </View>
-                    <View style={{height: 10}}></View>
-                    <View style={{height: this.height*0.05,
-                    width: this.width * 0.85,
-                    justifyContent:"flex-start",
-                    alignItems: "flex-start"}}>
-                        <Text style={{color:COLORS.fontColorAccentContrast,
-                            fontSize: 20,
-                            fontWeight: "bold",}}>
-                            Tus favoritos
-                        </Text>
-                    </View>
-                    <View style={{flex:1,
-                        justifyContent:"flex-start",
-                            alignContent:"center"}}>
-                            <FlatList
-                                data={listaFavoritos}
-                                //ListEmptyComponent={this.renderListEmpty()}
-                                renderItem={({item})=>{
-                                    
-                                    let name = item.name;
-                                    let business = item.business;
-                                    
-                                    return this.renderListFavorites(name, business);
 
-                                }}
-                                keyExtractor={item => item.name}
-                                extraData={this.state.listaFavoritos}
-                                ListFooterComponent={() => <View></View>}
-                                numColumns= {1} />
-                        
-                    </View>
-                    <View style={{height: this.height*0.05,
-                    width: this.width * 0.85,
-                    justifyContent:"flex-start",
-                    alignItems: "flex-start"}}>
-                        <Text style={{color:COLORS.fontColorAccentContrast,
+                    <View style={{
+                        height: this.height*0.05,
+                        width: this.width * 0.85,
+                        justifyContent:"flex-start",
+                        alignItems: "flex-start"
+                        }}>
+                        <Text style={{
+                            color: COLORS.fontColorAccent,
+                            fontFamily: c_style.secondaryFont,
                             fontSize: 20,
-                            fontWeight: "bold",}}>
-                            Lo más popular
+                            }}>
+                            Se te han antojado
                         </Text>
                     </View>
                     
-                        <View style={{flex:1,
-                            justifyContent:"flex-start",
-                            alignContent:"center"}}>
-                            <FlatList
-                                data={listaRecurrentes}
-                                //ListEmptyComponent={this.renderListEmpty()}
-                                renderItem={({item})=>{
-                                    
-                                    let name = item.name;
-                                    let business = item.business;
-                                    
-                                    return this.renderListFavorites(name, business);
+                    <View style={{
+                        flex:1,
+                        justifyContent:"flex-start",
+                        alignContent:"center"
+                        }}>
+                        <FlatList
+                            data={listaRecurrentes}
+                            //ListEmptyComponent={this.renderListEmpty()}
+                            renderItem={({item})=>{
+                                
+                                return this.renderListFavorites(item);
 
-                                }}
-                                keyExtractor={item => item.name}
-                                extraData={this.state.listaRecurrentes}
-                                ListFooterComponent={() => <View></View>}
-                                numColumns= {1} />
-                        </View>
+                            }}
+                            keyExtractor={item => item.name}
+                            extraData={this.state.listaRecurrentes}
+                            ListFooterComponent={() => <View></View>}
+                            numColumns= {1} 
+                        />
                     </View>
+
+                </View>
+
+                <View style={{height: 20}}></View>
                 
-            </View>
+            </ScrollView>
         );
     }
 }

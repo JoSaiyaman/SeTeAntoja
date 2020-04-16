@@ -17,12 +17,12 @@ export const style = (context)=>{
 
     return StyleSheet.create({
         main: {
-            height: '150%', 
+            // height: '150%', 
             width: '100%', 
             backgroundColor: COLORS.background,
             flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems:"center"
+            // justifyContent: "flex-start",
+            // alignItems:"center"
         },
         brand_label: {
             fontFamily: commonStyles(context).specialFont,

@@ -116,7 +116,7 @@ export class MealExploration extends Component{
             <View style={view_style.nav_options_wrapper}>
 
               <TouchableOpacity
-                onPress={()=>Actions.buscar()}
+                onPress={()=>Actions.meal_usual()}
                 style={view_style.nav_option}>
 
                 <Text style={view_style.nav_option_text}>Ve la selección de platillos que te han gustado</Text>
