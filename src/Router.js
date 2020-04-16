@@ -18,6 +18,7 @@ import Filtro from './views/Buscar/Filtro';
 import Preferencias from './views/Info/Preferencias';
 import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
+import { MealSearch } from './views/MealSearch/MealSearch';
 import { MealSelection } from './views/MealExploration/MealSelection';
 import { MealDetail } from './views/MealDetail/MealDetail';
 
@@ -175,14 +176,6 @@ export default class RouterComponent extends React.Component {
                     hideNavBar={true}
                     style={style.titleStyle}
                 >
-                    
-                    <Scene
-                        hideNavBar
-                        title=""
-                        key="home_screen"
-                        component={Menu}
-                        // initial                        
-                    />
 
                     <Scene
                         hideNavBar
@@ -190,13 +183,6 @@ export default class RouterComponent extends React.Component {
                         key="meal_exploration"
                         component={MealExploration}
                         initial              
-                    />
-                    
-                    <Scene
-                        hideNavBar
-                        title=""
-                        key="meal_selection"
-                        component={MealSelection}              
                     />
 
                     <Scene
@@ -206,7 +192,45 @@ export default class RouterComponent extends React.Component {
                         component={MealDetail}              
                     />
 
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="filtro"
+                        component={Filtro}       
+                    />
+
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_search"
+                        component={MealSearch}
+                        // type="reset"
+                    />
+                    
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_selection"
+                        component={MealSelection}              
+                    />
                 </Stack>
+
+                {/* <Stack
+                    key="meal_search_stack"
+                    type="reset"
+                    hideNavBar={true}
+                    style={style.titleStyle}
+                >
+
+
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_search_detail"
+                        component={MealDetail}              
+                    />
+
+                </Stack> */}
                 
             </Stack>
 

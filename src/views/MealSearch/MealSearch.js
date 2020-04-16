@@ -8,7 +8,7 @@ import {
   ImageBackground,
   DrawerLayoutAndroid
 } from 'react-native';
-import { style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealExploration_style';
+import { style, COMMON_BORDER_RADIUS, COMMON_PADDING, COMMON_ELEVATION} from './MealSearch_style';
 import { commonStyles} from '../../../res/styles/commonStyles';
 import { Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -20,9 +20,9 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import {
     getMealProfileList
-} from './MealExploration_controller';
+} from './MealSearch_controller';
 
-export class MealExploration extends Component{
+export class MealSearch extends Component{
     constructor() {
         super();
         let {width, height} = Dimensions.get("window");
@@ -35,7 +35,9 @@ export class MealExploration extends Component{
             swipedAllCards: false,
             swipeDirection: '',
             cardIndex: 0,
-            cards: getMealProfileList(this)
+            cards: getMealProfileList(this),
+            cravedMeals: [],
+            highlyCravedMeals: []
         };
     }
 
@@ -45,8 +47,49 @@ export class MealExploration extends Component{
     onSwipedAborted = () => {
     }
 
-    onSwiped = () => {
+    hasReachedThreshold() {
+      let reached = false
+      let totalMeals = this.state.cravedMeals.length + this.state.highlyCravedMeals.length
+      if ((totalMeals % 5 == 0) && totalMeals != 0) {
+        reached = true
+      }
+      return reached
+    }
 
+    openMealSelection() {
+      let cravedMeals = this.state.cravedMeals
+      let highlyCravedMeals = this.state.highlyCravedMeals
+      let mealProfileList = []
+      mealProfileList.join(cravedMeals)
+      mealProfileList.join(highlyCravedMeals)
+      Actions.meal_selection({
+        mealProfileList: mealProfileList
+      })
+    }
+
+    onSwiped = (index, direction) => {
+      let mealProfile = this.state.cards[index]
+      let cravedMeals = this.state.cravedMeals
+      let highlyCravedMeals = this.state.highlyCravedMeals
+
+      if (direction === 'right') {
+        cravedMeals.push(mealProfile)
+        this.setState({
+          cravedMeals: cravedMeals
+        })
+        console.log(cravedMeals)
+      } else if (direction === 'top'){
+        highlyCravedMeals.push(mealProfile)
+        this.setState({
+          highlyCravedMeals: highlyCravedMeals
+        })
+        console.log(highlyCravedMeals)
+      }
+      if (this.hasReachedThreshold()) {
+        // setTimeout(function () {
+          this.openMealSelection()
+        // }, 500)
+      }
     }
 
     onSwipedAllCards = () => {
@@ -147,7 +190,7 @@ export class MealExploration extends Component{
               </TouchableOpacity>
             </View>
 
-          </View>    
+          </View>        
         ); 
 
         return (
@@ -161,11 +204,10 @@ export class MealExploration extends Component{
                 ref={swiper => {
                   this.swiper = swiper
                 }}
-                onSwiped={() => this.onSwiped('general')}
-                onSwipedLeft={() => this.onSwiped('left')}
-                onSwipedRight={() => this.onSwiped('right')}
-                onSwipedTop={() => this.onSwiped('top')}
-                onSwipedBottom={() => this.onSwiped('bottom')}
+                // onSwiped={(index) => this.onSwiped(index, 'general')}
+                onSwipedLeft={(index) => this.onSwiped(index,'left')}
+                onSwipedRight={(index) => this.onSwiped(index, 'right')}
+                onSwipedTop={(index) => this.onSwiped(index, 'top')}
                 onTapCard={(index)=>Actions.meal_detail({
                   mealProfile: this.state.cards[index]
                 })}
@@ -245,24 +287,30 @@ export class MealExploration extends Component{
                       <TouchableOpacity
                           onPress={()=>this.drawer.openDrawer()}
                           style={view_style.custom_appbar_icon}>
-
                           <Icon name="menu" size={30} color={COLORS.fontColorBackground} />
-                      
                       </TouchableOpacity>
                       
                       <TouchableOpacity
-                        onPress={()=>Actions.filtro()}
+                        onPress={()=>this.openMealSelection()}
                         style={view_style.appbar_center_button}>
                         
-                        <Icon name="taco" size={22} color={COLORS.fontColorAccent} />
+                        <Icon name="cards-outline" size={22} color={COLORS.fontColorAccent} />
                         
                         <View style={{width: 5}}></View>    
                         
-                        <Text style={view_style.appbar_center_button_text}>Buscar algo para cenar </Text>
+                        <Text style={view_style.appbar_center_button_text}>Ver mi selección</Text>
                       
                       </TouchableOpacity> 
                       
-                      <View style={{width: 40}}></View>    
+                      <TouchableOpacity
+                        onPress={()=>Actions.main()}
+                        style={view_style.appbar_center_button}>
+                        
+                        <Icon name="close" size={22} color={COLORS.fontColorAccent} />
+        
+                      </TouchableOpacity> 
+                      
+                      <View style={{width: 0}}></View>    
 
                     </View>
 

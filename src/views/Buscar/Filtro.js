@@ -245,7 +245,7 @@ export default class Filtro extends React.Component{
               </View>
               <View style={{height: 15}}></View>
               <View style={estilos.opcion}>
-                <TouchableOpacity onPress={()=>Actions.pop()} style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
+                <TouchableOpacity onPress={()=>Actions.meal_search()} style={[estilos.botonMenu,{backgroundColor: COLORS.accent}]}>
                   <Text  style={{
                     fontFamily: c_style.secondaryFontBold,
                     color: COLORS.fontColorBackground,

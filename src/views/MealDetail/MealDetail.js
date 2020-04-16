@@ -106,7 +106,7 @@ export class MealDetail extends Component{
               </View>
               
               <View style={view_style.meal_detail_container}>
-                <Text style={view_style.meal_detail_subtitle}>Servicio a domicilio</Text>
+                <Text style={view_style.meal_detail_subtitle}>Información de Contacto</Text>
                 {mealProfile.contactNumbers.map(contactNumber => {
                   return (
                     <View style={view_style.meal_detail_phone}>

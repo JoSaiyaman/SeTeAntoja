@@ -195,7 +195,7 @@ export class MealSelection extends Component{
                     flexDirection:"row",
                     flex:2,
                     height:this.height*0.15,
-                    backgroundColor:COLORS.background,
+                    backgroundColor:COLORS.container,
                     justifyContent:"center",
                     alignItems:"center"}}>
                     <View style={{flex:3}}>
@@ -203,7 +203,7 @@ export class MealSelection extends Component{
                         //onPress={()=>this.verifyNumberAndRequestSMS()}
                             style={{width: this.width*0.45,
                                 height: this.height*0.08,
-                            backgroundColor: COLORS.background,
+                            backgroundColor: COLORS.container,
                             borderRadius:30,
                             justifyContent: "center",
                             alignContent:"center",
@@ -232,7 +232,7 @@ export class MealSelection extends Component{
                             borderWidth: 0,
                             borderColor: COLORS.accent}}
                             
-                            onPress={()=>Actions.meal_detail()}>
+                            onPress={()=>Actions.pop()}>
 
                             <Text style={{textAlign:"center",
                             color:COLORS.fontColorWhite,
