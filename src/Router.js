@@ -20,6 +20,7 @@ import Ubicación from './views/Info/Ubicación';
 import { MealExploration } from './views/MealExploration/MealExploration';
 import { MealSelection } from './views/MealExploration/MealSelection';
 import { MealDetail } from './views/MealDetail/MealDetail';
+import { MealUsual } from './views/MealUsual/MealUsual';
 
 import { PhoneRegistration } from './views/PhoneRegistration/PhoneRegistration';
 import { PhoneRegistrationOTP } from './views/PhoneRegistration/PhoneRegistrationOTP';
@@ -204,6 +205,13 @@ export default class RouterComponent extends React.Component {
                         title=""
                         key="meal_detail"
                         component={MealDetail}              
+                    />
+
+                    <Scene
+                        hideNavBar
+                        title=""
+                        key="meal_usual"
+                        component={MealUsual}              
                     />
 
                 </Stack>

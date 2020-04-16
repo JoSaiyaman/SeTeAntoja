@@ -136,7 +136,8 @@ export class MealDetail extends Component{
               <View style={view_style.meal_detail_container}>
                 
                 <TouchableOpacity
-                  onPress={this.swipeTop}
+                  //onPress={this.swipeTop}
+                  onPress={Actions.meal_usual()}
                   style={[view_style.btn_share, {color: COLORS.accent}]}>
                   <Icon name="share" size={30} color={COLORS.green} />
                   <View style={{height: 10}}></View>
